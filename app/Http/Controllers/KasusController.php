@@ -11,7 +11,7 @@ class KasusController extends Controller
 {
     public function index()
     {
-        $data_kasus = Kasus::latest()->get();
+        $data_kasus = Kasus::with('Kriteria')->get();
         return view("dashboard.kasus.index")->with('data_kasus', $data_kasus);
     }
 

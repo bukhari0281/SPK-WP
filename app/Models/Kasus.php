@@ -12,8 +12,13 @@ class Kasus extends Model
     protected $table = 'kasuses';
     protected $fillable = ['name'];
 
-    public function kriteria()
+    public function name()
     {
-        return $this->belongsTo(Kriteria::class, 'kriterias');
+        return $this->name;
+    }
+
+    public function Kriteria()
+    {
+        return $this->belongsTo(Kriteria::class, 'kasus_id');
     }
 }

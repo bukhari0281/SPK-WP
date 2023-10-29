@@ -19,13 +19,7 @@
                 <tr>
                     <td>{{ $i }}</td>
                     <td>{{ $item->name }}</td>
-                    <td>@foreach($item->kriteria()->get() as $kriteria)
-                        <div class="card shadow-sm mb-2">
-                            <div class="card-body">
-                                <i class="fa fa-comments"></i> {{ $kriteria->kriteria }}
-                            </div>
-                        </div>
-                    @endforeach</td>
+                    <td>{{ $item->Kriteria->kriteria([]) }}</td>
                     <td class="">
                         <a href="{{ route('kriteria') }}" class="btn btn-sm btn-warning text-white">Tuntaskan</a>
                     </td>

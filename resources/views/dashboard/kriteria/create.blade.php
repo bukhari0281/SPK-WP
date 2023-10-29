@@ -7,6 +7,16 @@
 
     <form action="{{ route('store_kriteria') }}" method="POST">
         @csrf
+
+        <div class="mb-3 col-5">
+          <label for="kasus" class="form-label">Kasus</label>
+          <select name="kasus_id" class="form-control @error('kasus_id') is-invalid @enderror">
+            <option value="">Pilih Kasus</option>
+            @foreach ($kasus as $item)
+                <option value="{{ $item->id }}">{{ $item->name() }}</option>
+            @endforeach
+        </select>
+        </div>
         <div class="mb-3 col-5">
           <label for="kriteria" class="form-label">Kriteria</label>
           <input type="text"

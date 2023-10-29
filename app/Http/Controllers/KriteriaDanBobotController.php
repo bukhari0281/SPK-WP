@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kasus;
 use App\Models\kriteria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -10,12 +11,14 @@ class KriteriaDanBobotController extends Controller
 {
     public function index()
     {
-        $data = kriteria::orderBy('kriteria', 'asc')->get();
+        $data = kriteria::with('Kasus')->get();
         return view("dashboard.kriteria.index")->with('data', $data);
     }
     public function create()
     {
-        return view("dashboard.kriteria.create");
+        // mengambil data kasus
+        $kasus = Kasus::all();
+        return view("dashboard.kriteria.create", compact("kasus"));
     }
 
     public function store(Request $request)
@@ -34,6 +37,7 @@ class KriteriaDanBobotController extends Controller
 
         $data = [
             'kriteria'=>$request->kriteria,
+            'kasus_id'=>$request->kasus_id,
             'bobot'=>$request->bobot,
         ];
         kriteria::create($data);

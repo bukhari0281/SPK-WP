@@ -8,6 +8,7 @@
             <thead>
                 <tr>
                     <th class="col-1">No</th>
+                    <th class="col-2">Kasus</th>
                     <th class="">Kriteria</th>
                     <th class="col-3">Bobot</th>
                     <th class="col-2">Aksi</th>
@@ -18,8 +19,9 @@
                 @foreach ($data as $item)
                 <tr>
                     <td>{{ $i }}</td>
-                    <td>{{ $item->Kriteria }}</td>
-                    <td>{{ $item->Bobot }}</td>
+                    <td>{{ $item->Kasus->name() }}</td>
+                    <td>{{ $item->kriteria }}</td>
+                    <td>{{ $item->bobot }}</td>
                     <td class="">
                         <a href="{{ route('edit_kriteria', $item->id) }}" class="btn btn-sm btn-warning text-white">Edit</a>
                         <a href="" class="btn btn-sm btn-danger text-white">Del</a>
