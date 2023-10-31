@@ -10,6 +10,10 @@
           <i class="mdi mdi-file-document-box-outline menu-icon"></i>
           <span class="menu-title">Kriteria</span>
         </a>
+        <a class="nav-link" href="{{ route('alternatif') }}">
+          <i class="mdi mdi-file-document-box-outline menu-icon"></i>
+          <span class="menu-title">Alternatif</span>
+        </a>
       </li>
     </ul>
   </nav>

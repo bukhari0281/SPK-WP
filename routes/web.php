@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AlternatifController;
 use App\Http\Controllers\KasusController;
 use App\Http\Controllers\KriteriaDanBobotController;
 use Illuminate\Support\Facades\Route;
@@ -35,6 +36,14 @@ Route::prefix('dashboard')->group(function () {
     Route::get('kasus/create', [KasusController::class,'create'])->name('create_kasus');
     Route::post('kasus', [KasusController::class,'store'])->name('store_kasus');
     // end of kasus
+
+    // alternatif
+    Route::get('alternatif', [AlternatifController::class,'index'])->name('alternatif');
+    Route::get('alternatif/create', [AlternatifController::class,'create'])->name('create_alternatif');
+    Route::post('alternatif', [AlternatifController::class,'store'])->name('store_alternatif');
+    Route::get('alternatif/{id}/edit', [KriteriaDanBobotController::class,'edit'])->name('edit_alternatif');
+
+    // end of alternatif
 });
 
 

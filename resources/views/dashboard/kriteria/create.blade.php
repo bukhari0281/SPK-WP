@@ -18,9 +18,14 @@
         </select>
         </div>
         <div class="mb-3 col-5">
-          <label for="kriteria" class="form-label">Kriteria</label>
+          <label for="kode" class="form-label">Kode Kriteria</label>
           <input type="text"
-            class="form-control form-control-sm" name="kriteria" id="kriteria" aria-describedby="helpId" placeholder="kriteria" value="{{ Session::get('kriteria') }}">
+            class="form-control form-control-sm" name="kode" id="kode" aria-describedby="helpId" placeholder="kode" value="{{ Session::get('kode') }}">
+        </div>
+        <div class="mb-3 col-5">
+          <label for="name" class="form-label">Kriteria</label>
+          <input type="text"
+            class="form-control form-control-sm" name="name" id="name" aria-describedby="helpId" placeholder="name" value="{{ Session::get('name') }}">
         </div>
         <div class="mb-3 col-5">
           <label for="bobot" class="form-label">Bobot</label>

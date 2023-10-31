@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('kriterias', function (Blueprint $table) {
+        Schema::create('sub_kriterias', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('kasus_id')->constrained()->cascadeOnDelete();
-			$table->string('kode');
             $table->string('name');
-            $table->float('bobot');
+            $table->unsignedInteger('nilai')->default(0);
+            $table->text('keterangan')->nullable;
             $table->timestamps();
+            $table->foreignId('kriteria_id')->nullable()->constrained()->cascadeOnDelete();
         });
     }
 
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('kriterias');
+        Schema::dropIfExists('sub_kriterias');
     }
 };

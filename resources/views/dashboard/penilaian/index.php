@@ -1,7 +1,7 @@
 @extends('dashboard.layout')
 
 @section('body')
-    <p class="card-title">Kriteria</p>
+    <p class="card-title">Penilaian</p>
     <div class="pb-3"><a href="{{ route('create_kriteria') }}" class="btn btn-primary text-white"> + Tambah Kriteria dan Bobot</a></div>
     <div class="table-responsive">
         <table class="table table-stripped">

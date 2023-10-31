@@ -9,8 +9,8 @@
                 <tr>
                     <th class="col-1">No</th>
                     <th class="">Nama Kasus</th>
-                    <th class="">Kriteria</th>
                     <th class="">Aksi</th>
+                    {{-- <th class="">Kriteria</th> --}}
                 </tr>
             </thead>
             <tbody>
@@ -19,7 +19,7 @@
                 <tr>
                     <td>{{ $i }}</td>
                     <td>{{ $item->name }}</td>
-                    <td>{{ $item->Kriteria->kriteria([]) }}</td>
+                    {{-- <td>{{ $item->Kriteria->kriteria() }}</td> --}}
                     <td class="">
                         <a href="{{ route('kriteria') }}" class="btn btn-sm btn-warning text-white">Tuntaskan</a>
                     </td>

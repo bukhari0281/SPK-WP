@@ -10,8 +10,12 @@ class Kasus extends Model
 {
     use HasFactory;
     protected $table = 'kasuses';
-    protected $fillable = ['name'];
+    protected $fillable = ['kriteria_id','name'];
 
+    public function kriteria_id()
+    {
+        return $this->kriteria_id;
+    }
     public function name()
     {
         return $this->name;
@@ -19,6 +23,6 @@ class Kasus extends Model
 
     public function Kriteria()
     {
-        return $this->belongsTo(Kriteria::class, 'kasus_id');
+        return $this->hasMany(Kriteria::class, 'kasus_id');
     }
 }

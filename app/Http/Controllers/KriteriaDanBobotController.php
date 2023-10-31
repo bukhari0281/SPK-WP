@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kasus;
-use App\Models\kriteria;
+use App\Models\Kriteria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -23,24 +23,28 @@ class KriteriaDanBobotController extends Controller
 
     public function store(Request $request)
     {
-        Session::flash('kriteria', $request->kriteria);
+        Session::flash('kode', $request->kode);
+        Session::flash('name', $request->name);
         Session::flash('bobot', $request->bobot);
         $request->validate(
             [
-                'kriteria' => 'required',
+                'kode' => 'required',
+                'name' => 'required',
                 'bobot' => 'required'
             ],[
-                'kriteria.requred' => 'Kriteria wajib diisi',
+                'kode.requred' => 'Kode wajib diisi',
+                'name.requred' => 'name wajib diisi',
                 'bobot.requred' => 'Bobot wajib diisi'
             ]
         );
 
         $data = [
-            'kriteria'=>$request->kriteria,
+            'kode'=>$request->kode,
+            'name'=>$request->name,
             'kasus_id'=>$request->kasus_id,
             'bobot'=>$request->bobot,
         ];
-        kriteria::create($data);
+        Kriteria::create($data);
         return redirect()->route("kriteria")->with('success', 'Berhasil menambahkan data');
     }
     public function edit(int $id)
