@@ -42,8 +42,12 @@ Route::prefix('dashboard')->group(function () {
     Route::get('alternatif/create', [AlternatifController::class,'create'])->name('create_alternatif');
     Route::post('alternatif', [AlternatifController::class,'store'])->name('store_alternatif');
     Route::get('alternatif/{id}/edit', [KriteriaDanBobotController::class,'edit'])->name('edit_alternatif');
-
     // end of alternatif
+
+    // pembobotan
+    Route::get('pembobotan', [AlternatifController::class,'index'])->name('pembobotan');
+    Route::get('pembobotan/create', [AlternatifController::class,'create'])->name('create_alternatif');
+    // end of pembobotan
 });
 
 
