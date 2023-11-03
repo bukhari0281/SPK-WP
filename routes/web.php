@@ -3,6 +3,7 @@
 use App\Http\Controllers\AlternatifController;
 use App\Http\Controllers\KasusController;
 use App\Http\Controllers\KriteriaDanBobotController;
+use App\Http\Controllers\PembobotanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,8 +46,8 @@ Route::prefix('dashboard')->group(function () {
     // end of alternatif
 
     // pembobotan
-    Route::get('pembobotan', [AlternatifController::class,'index'])->name('pembobotan');
-    Route::get('pembobotan/create', [AlternatifController::class,'create'])->name('create_alternatif');
+    Route::get('pembobotan', [PembobotanController::class,'index'])->name('pembobotan');
+    Route::get('pembobotan/create', [PembobotanController::class,'create'])->name('create_pembobotan');
     // end of pembobotan
 });
 

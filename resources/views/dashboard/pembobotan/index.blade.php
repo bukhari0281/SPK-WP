@@ -2,7 +2,7 @@
 
 @section('body')
     <p class="card-title">Penilaian</p>
-    <div class="pb-3"><a href="{{ route('create_kriteria') }}" class="btn btn-primary text-white"> + Tambah Kriteria dan Bobot</a></div>
+    <div class="pb-3"><a href="{{ route('create_pembobotan') }}" class="btn btn-primary text-white">Lakukan Pembobotan</a></div>
     <div class="table-responsive">
         <table class="table table-stripped">
             <thead>
@@ -17,12 +17,10 @@
             </thead>
             <tbody>
                 <?php $i=1; ?>
-                @foreach ($data as $item)
+                @foreach ($kriterias as $item)
                 <tr>
                     <td>{{ $i }}</td>
-                    <td>{{ $item->Kasus->name() }}</td>
                     <td>{{ $item->kode }}</td>
-                    <td>{{ $item->name }}</td>
                     <td>{{ $item->bobot }}</td>
                     <td class="">
                         <a href="{{ route('edit_kriteria', $item->id) }}" class="btn btn-sm btn-warning text-white">Edit</a>
