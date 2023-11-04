@@ -16,6 +16,11 @@ class Kriteria extends Model
         return $this->name;
     }
 
+    public function bobot()
+    {
+        return $this->bobot;
+    }
+
     public function Kasus()
     {
         return $this->belongsTo(Kasus::class, 'kasus_id');
