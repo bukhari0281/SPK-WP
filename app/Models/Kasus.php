@@ -21,8 +21,13 @@ class Kasus extends Model
         return $this->name;
     }
 
-    public function Kriteria()
+    public function Kriterias()
     {
         return $this->hasMany(Kriteria::class, 'kasus_id');
+    }
+
+    public function kriteria()
+    {
+        return $this->belongsTo(Kriteria::class, 'kriteria_id');
     }
 }

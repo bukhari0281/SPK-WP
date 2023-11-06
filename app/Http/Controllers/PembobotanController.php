@@ -11,9 +11,13 @@ class PembobotanController extends Controller
 {
     public function index() {
         $kriterias =Kriteria::with('kasus')->orderBy('kode')->get();
-        $kasus =Kasus::with('Kriteria')->get();
-        return view('dashboard.pembobotan.index', compact('kriterias','kasus'));
+        $kasus =Kasus::find(1)->get();
+        $users = Kasus::with('kriteria')->get();
+
+        return view('dashboard.pembobotan.index', compact('kriterias','kasus','users'));
     }
+
+    
 
     public function pembobotan()
     {

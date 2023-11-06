@@ -21,7 +21,7 @@
                     <td>{{ $item->name }}</td>
                     {{-- <td>{{ $item->Kriteria->kriteria() }}</td> --}}
                     <td class="">
-                        <a href="{{ route('kriteria') }}" class="btn btn-sm btn-warning text-white">Tuntaskan</a>
+                        <a href="{{ route('detail_kasus', $item->id) }}" class="btn btn-sm btn-warning text-white">Detail Kasus</a>
                     </td>
                 </tr>
                 <?php $i++; ?>

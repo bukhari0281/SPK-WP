@@ -19,15 +19,17 @@
                     <th class="col-2">Aksi</th>
                 </tr>
             </thead>
-            @foreach ($kasus as $ks)
+            @foreach ($kriterias as $ks)
             <tbody>
                 <?php $i=1; ?>
                 <tr>
                     <td>{{ $i }}</td>
-                    <td>{{ $ks->name }}</td>
-                    @foreach ($kasus as $kriteria)
-                    <th class="col-1">{{ $kriteria->Kriteria }}</th>
+                    <td>{{ $ks->Kasus->name() }}</td>
+
+                    @foreach ($users as $k)
+                    <th class="col-1">{{ $k->kriteria }}</th>
                     @endforeach
+
                     <td class="">
                         <a href="{{ route('edit_kriteria', $ks->id) }}" class="btn btn-sm btn-warning text-white">Edit</a>
                         <a href="" class="btn btn-sm btn-danger text-white">Del</a>

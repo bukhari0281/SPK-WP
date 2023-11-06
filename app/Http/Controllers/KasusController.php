@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Kasus;
+use App\Models\Kriteria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -18,6 +19,12 @@ class KasusController extends Controller
     public function create()
     {
         return view("dashboard.kasus.create");
+    }
+
+    public function detail_kasus(int $id)
+    {
+        $detail_kasus = Kriteria::with('Kasus')->where('id', $id)->first();
+        return view("dashboard.kasus.detail",compact("detail_kasus"));
     }
 
     public function store(Request $request)

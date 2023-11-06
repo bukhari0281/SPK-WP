@@ -35,6 +35,7 @@ Route::prefix('dashboard')->group(function () {
     // kasus
     Route::get('kasus', [KasusController::class,'index'])->name('kasus');
     Route::get('kasus/create', [KasusController::class,'create'])->name('create_kasus');
+    Route::get('kasus/{id}', [KasusController::class,'detail_kasus'])->name('detail_kasus');
     Route::post('kasus', [KasusController::class,'store'])->name('store_kasus');
     // end of kasus
 
