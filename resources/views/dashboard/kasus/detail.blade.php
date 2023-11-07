@@ -1,7 +1,9 @@
 @extends('dashboard.layout')
 
 @section('body')
-<div class="pb-3"><a href="{{ route('kasus') }}" class="btn btn-primary text-white"> Kembali</a></div>
+<div class="pb-3">
+    <a href="{{ route('kasus') }}" class="btn btn-primary text-white"> Kembali</a>
+</div>
     <div class="card-title">
 
         <h1 class="text-center">Kasus {{ $detail_kasus->name }}</h1>

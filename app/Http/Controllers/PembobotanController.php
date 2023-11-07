@@ -6,6 +6,7 @@ use App\Models\alternatif;
 use App\Models\Kasus;
 use App\Models\Kriteria;
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\TryCatch;
 
 class PembobotanController extends Controller
 {
@@ -19,21 +20,55 @@ class PembobotanController extends Controller
 
 
 
-    public function pembobotan($id)
+    public function pembobotan(string $id)
     {
-        // penentuan nilai bobot
-		$kriterias = Kriteria::with('kasus')->find($id);
+        try {
+            // penentuan nilai bobot
+
+		$kriterias = Kasus::with('get_kriteria')->findOrFail($id);
 
         // Hitung total bobot dari semua kriteria
         // $Bobot = $kriterias->Kasus->get_kriteria('bobot');
-        $bobot = $kriterias->Kasus->get_kriteria;
+        $bobot = $kriterias->get_kriteria;
+        // $C = $bobot->pluck('bobot')->toArray();
+
+        // $arr = [$C];
+
 		$bobots = [];
 		foreach ($bobot as $kr) {
-			$bobots[] = $kr->bobot / $kriterias->sum('bobot');
+			$bobots[] = $kr->bobot;
+
 		}
+        // $txt = array(5,3,4,4,2);
+        // $sum = array_sum($txt);
+        $sum = array_sum($bobots);
+        $results = [];
 
-        dd($bobots);
+        // Iterasi pada array bobot dan bagikan setiap elemen dengan totalBobot
+        foreach ($bobots as $bobot) {
+            $results[] = $bobot / $sum;
+        }
 
-        return view('dashboard.kasus.index')->with('bobots', $bobots);
+        // Tampilkan hasil pembagian
+        // dd($results);
+
+        // foreach ($bobot as $k) {
+        //     (float)$r = $k / $sum;
+        //     // $t = (float)$r;
+        //     echo "$k / $sum = $r";
+
+        // }
+        // foreach ($txt as $value) {
+        //     $r = $value / $sum;
+        //   echo "$value / $sum = $r  <br>";
+        // }
+        // dd($sum);
+
+            return view('dashboard.pembobotan.index', compact('results', 'kriterias'));
+        } catch (\Exception $e) {
+            // Tangani kesalahan
+            return $e->getMessage();
+        }
+
     }
 }

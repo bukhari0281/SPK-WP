@@ -1,45 +1,53 @@
 @extends('dashboard.layout')
 
 @section('body')
-    <p class="card-title">Kriteria</p>
-    <div class="pb-3"><a href="{{ route('create_kriteria') }}" class="btn btn-primary text-white"> + Tambah Kriteria dan Bobot</a></div>
+    <p class="card-title">Hasil Pembobotan</p>
+    <div class="pb-3"><a href="{{ route('kasus') }}" class="btn btn-primary text-white">< Kembali</a></div>
+    <div class="card" style="width: 30rem;">
+        <div class="card-header">
+            <h3 class="p p-2 pb-1 text-center">Data Bobot</h3>
+        </div>
+            <div class="card-body ">
 
-    <div class="table-responsive">
-        {{-- @foreach ($kriterias as $item) --}}
-        <table class="table table-stripped">
-            <thead>
-                <tr>
-                    <th class="col-1">No</th>
-                    <th class="col-1">Kasus</th>
-                    @foreach ($kriterias as $krit)
+                <table class="table table-borderless">
+                    <thead  class="text-center">
+                    <tr>
+                        <th scope="col">Nomer</th>
+                        <th scope="col">Kode</th>
+                        <th scope="col">Bobot</th>
+                        <th scope="col">Pembobotan</th>
+                    </tr>
+                    </thead>
+                    <tbody  class="text-center">
+                        <?php $i=1; ?>
+                        <tr>
+                            @foreach ($kriterias->get_kriteria as $item)
+                            {{-- <td>{{ $i }}</td> --}}
+                            <td>{{ $i++ }}</td>
+                            <td>{{ $item->kode }}</td>
+                            <td>{{ $item->bobot }}</td>
+                            <td>
+                                <ul class="list-inline">
+                                    @foreach ($results as $result)
+                                        <li class="list-inline-item">{{ $result }}</li>
+                                    @endforeach
+                                </ul>
+
+                            </td>
 
 
-                    <th class="col-1">{{ $krit->kode }}</th>
-                    @endforeach
-                    <th class="col-2">Aksi</th>
-                </tr>
-            </thead>
-            @foreach ($kriterias as $ks)
-            <tbody>
-                <?php $i=1; ?>
-                <tr>
-                    <td>{{ $i }}</td>
-                    <td>{{ $ks->Kasus->name() }}</td>
+                        </tr>
+                        @endforeach
+                                <?php $i++; ?>
 
-                    @foreach ($users as $k)
-                    <th class="col-1">{{ $k->kriteria }}</th>
-                    @endforeach
+                            </tbody>
 
-                    <td class="">
-                        <a href="{{ route('edit_kriteria', $ks->id) }}" class="btn btn-sm btn-warning text-white">Edit</a>
-                        <a href="" class="btn btn-sm btn-danger text-white">Del</a>
-                    </td>
-                </tr>
-                <?php $i++; ?>
-            </tbody>
-            @endforeach
+                        </table>
+            </div>
+    </div>
 
-        </table>
-        {{-- @endforeach --}}
+
+    <div class="">
+
     </div>
 @endsection
