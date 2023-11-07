@@ -29,7 +29,7 @@
                             <td>
                                 <ul class="list-inline">
                                     @foreach ($results as $result)
-                                        <li class="list-inline-item">{{ $result }}</li>
+                                        <li class="list-inline-item">{{ $item->kode }} = {{ $result }}</li>
                                     @endforeach
                                 </ul>
 
