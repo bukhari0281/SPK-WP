@@ -47,8 +47,7 @@ Route::prefix('dashboard')->group(function () {
     // end of alternatif
 
     // pembobotan
-    Route::get('pembobotan', [PembobotanController::class,'index'])->name('pembobotan');
-    Route::get('pembobotan/create', [PembobotanController::class,'create'])->name('create_pembobotan');
+    Route::get('pembobotan', [PembobotanController::class,'pembobotan'])->name('pembobotan');
     // end of pembobotan
 });
 
