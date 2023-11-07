@@ -33,23 +33,23 @@
                                         @empty
 
 
-                                    </td>
-                                </tr>
+
                                 <p>
                                     Tidak ada data
                                 </p>
+
+                                @endforelse
+                            </td>
+
+
                         </tr>
                                 <?php $i++; ?>
-                        @endforelse
 
-                    </tbody>
-                </table>
-                    <div class="text-center">
+                            </tbody>
 
-                        <a href="#" class="btn btn-primary text-white mt-2 text-center">Normalisasikan Bobot</a>
-                    </div>
+                        </table>
+                        <a href="{{ route('pembobotan', $detail_kasus->id) }}" class="btn btn-primary text-white">tes</a>
             </div>
     </div>
-
 
 @endsection

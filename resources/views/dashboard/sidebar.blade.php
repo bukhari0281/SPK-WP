@@ -14,9 +14,9 @@
           <i class="mdi mdi-file-document-box-outline menu-icon"></i>
           <span class="menu-title">Alternatif</span>
         </a>
-        <a class="nav-link" href="{{ route('pembobotan') }}">
+        <a class="nav-link" href="{{ route('sub_kriteria') }}">
           <i class="mdi mdi-file-document-box-outline menu-icon"></i>
-          <span class="menu-title">Pembobotan</span>
+          <span class="menu-title">Sub Kriteria</span>
         </a>
       </li>
     </ul>

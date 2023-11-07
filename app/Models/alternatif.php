@@ -12,9 +12,18 @@ class alternatif extends Model
     // lepaskan proteksi mass assignment
 	protected $guarded = [];
 
+    public function kode()
+    {
+        return $this->kode;
+    }
+    public function name()
+    {
+        return $this->name;
+    }
+
 	// relasi ke tabel kriteria
-	public function kriteria()
+	public function sub_kriteria()
 	{
-		return $this->belongsToMany(Kriteria::class)->withPivot('nilai');
+		return $this->hasMany(Kriteria::class);
 	}
 }

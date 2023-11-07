@@ -17,17 +17,23 @@ class PembobotanController extends Controller
         return view('dashboard.pembobotan.index', compact('kriterias','kasus','users'));
     }
 
-    
 
-    public function pembobotan()
+
+    public function pembobotan($id)
     {
         // penentuan nilai bobot
-		$kriterias = Kriteria::orderBy('kode')->get();
+		$kriterias = Kriteria::with('kasus')->find($id);
+
+        // Hitung total bobot dari semua kriteria
+        // $Bobot = $kriterias->Kasus->get_kriteria('bobot');
+        $bobot = $kriterias->Kasus->get_kriteria;
 		$bobots = [];
-		foreach ($kriterias as $kr) {
+		foreach ($bobot as $kr) {
 			$bobots[] = $kr->bobot / $kriterias->sum('bobot');
 		}
 
-        return view('')->with('bobots', $bobots);
+        dd($bobots);
+
+        return view('dashboard.kasus.index')->with('bobots', $bobots);
     }
 }

@@ -4,6 +4,7 @@ use App\Http\Controllers\AlternatifController;
 use App\Http\Controllers\KasusController;
 use App\Http\Controllers\KriteriaDanBobotController;
 use App\Http\Controllers\PembobotanController;
+use App\Http\Controllers\SubKriteriaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,8 +48,14 @@ Route::prefix('dashboard')->group(function () {
     // end of alternatif
 
     // pembobotan
-    Route::get('pembobotan', [PembobotanController::class,'pembobotan'])->name('pembobotan');
+    Route::get('pembobotan/{id}', [PembobotanController::class,'pembobotan'])->name('pembobotan');
     // end of pembobotan
+
+    // sub kriteria
+    Route::get('subkriteria', [SubKriteriaController::class, 'index'])->name('sub_kriteria');
+    Route::get('subkriteria/create', [SubKriteriaController::class, 'create'])->name('create_sub_kriteria');
+    Route::post('subkriteria/create', [SubKriteriaController::class, 'store'])->name('store_sub_kriteria');
+    // ens sub kriteria
 });
 
 
