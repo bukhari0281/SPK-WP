@@ -12,8 +12,8 @@ class KasusController extends Controller
 {
     public function index()
     {
-        $data_kasus = Kasus::with('Kriteria')->get();
-        return view("dashboard.kasus.index")->with('data_kasus', $data_kasus);
+        $data_kasus = Kasus::all();
+        return view("dashboard.kasus.index", ['data_kasus'=>$data_kasus]);
     }
 
     public function create()
@@ -21,10 +21,10 @@ class KasusController extends Controller
         return view("dashboard.kasus.create");
     }
 
-    public function detail_kasus(int $id)
+    public function detail_kasus($id)
     {
-        $detail_kasus = Kriteria::with('Kasus')->where('id', $id)->first();
-        return view("dashboard.kasus.detail",compact("detail_kasus"));
+        $detail_kasus = Kasus::find($id);
+        return view("dashboard.kasus.detail")->with('detail_kasus', $detail_kasus);
     }
 
     public function store(Request $request)

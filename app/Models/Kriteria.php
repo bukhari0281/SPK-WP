@@ -11,7 +11,7 @@ class Kriteria extends Model
     protected $table = 'Kriterias';
     protected $fillable = ['kode','name','bobot','kasus_id'];
 
-    public function kriteria()
+    public function name()
     {
         return $this->name;
     }
