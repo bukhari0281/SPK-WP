@@ -3,7 +3,7 @@
 @section('body')
     <p class="card-title">Hasil Pembobotan</p>
     <div class="pb-3"><a href="{{ route('kasus') }}" class="btn btn-primary text-white">< Kembali</a></div>
-    <div class="card" style="width: 30rem;">
+    <div class="card" style="width: 60rem;">
         <div class="card-header">
             <h3 class="p p-2 pb-1 text-center">Data Bobot</h3>
         </div>
@@ -27,13 +27,19 @@
                             <td>{{ $item->kode }}</td>
                             <td>{{ $item->bobot }}</td>
                             <td>
-                                <ul class="list-inline">
+                                <ul class="">
                                     @foreach ($results as $result)
-                                        <li class="list-inline-item">{{ $item->kode }} = {{ $result }}</li>
+                                        <li class="">{{ $item->kode }} = {{ $result }}</li>
                                     @endforeach
                                 </ul>
 
                             </td>
+                            @foreach($results as $index => $result)
+                                <tr>
+                                    <td>Kriteria {{ $index + 1 }}</td>
+                                    <td>{{ $result }}</td>
+                                </tr>
+                            @endforeach
 
 
                         </tr>
