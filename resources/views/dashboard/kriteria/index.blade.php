@@ -16,10 +16,11 @@
             <thead>
                 <tr>
                     <th class="col-1">No</th>
-                    <th class="col-1">Kasus</th>
+                    <th class="col-2">Kode Kasus</th>
                     <th class="col-1">Kode</th>
-                    <th class="">Kriteria</th>
-                    <th class="col-3">Bobot</th>
+                    <th class="col-2">Kriteria</th>
+                    <th class="col-2">Bobot</th>
+                    <th class="col-2">Sub Kriteria</th>
                     <th class="col-2">Aksi</th>
                 </tr>
             </thead>
@@ -28,10 +29,11 @@
                 @foreach ($data as $item)
                 <tr>
                     <td>{{ $i }}</td>
-                    <td>{{ $item->Kasus->name() }}</td>
+                    <td>{{ $item->Kasus->kode() }}</td>
                     <td>{{ $item->kode }}</td>
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->bobot }}</td>
+                    <td>{{ $item->get_subkriteria->count() }}</td>
                     <td class="">
                         <a href="{{ route('edit_kriteria', $item->id) }}" class="btn btn-sm btn-warning text-white">Edit</a>
                         <a href="" class="btn btn-sm btn-danger text-white">Del</a>

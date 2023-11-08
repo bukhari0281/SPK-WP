@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('kasuses', function (Blueprint $table) {
             $table->id();
-            $table->integer('kriteria_id')->nullable();
+            $table->string('kode');
             $table->string('name');
             $table->timestamps();
         });

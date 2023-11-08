@@ -15,11 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('kode');
             $table->string('name');
-            // dibawah sini sesuaikan dengan data alternatif
-            $table->boolean('gender')->default(1);
-            $table->string('phone')->nullable();
-            $table->string('email')->nullable();
-            $table->text('address')->nullable();
             $table->timestamps();
         });
     }

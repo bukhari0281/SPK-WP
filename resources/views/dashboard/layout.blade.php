@@ -37,6 +37,9 @@
                           <li class="list-inline-item">
                             <a class="nav-link text-dark" href="{{ route('alternatif') }}">Alternatif</a>
                           </li>
+                          <li class="list-inline-item">
+                            <a class="nav-link text-dark" href="{{ route('sub_kriteria') }}">sub_kriteria</a>
+                          </li>
                         </ul>
                     </div>
                 </div>

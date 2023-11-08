@@ -11,6 +11,11 @@ class Kriteria extends Model
     protected $table = 'Kriterias';
     protected $fillable = ['kode','name','bobot','kasus_id'];
 
+    public function kode()
+    {
+        return $this->kode;
+    }
+
     public function name()
     {
         return $this->name;
@@ -26,7 +31,7 @@ class Kriteria extends Model
         return $this->belongsTo(Kasus::class, 'kasus_id');
     }
 
-    public function subkriteria()
+    public function get_subkriteria()
 	{
 		return $this->hasMany(sub_kriteria::class);
 	}

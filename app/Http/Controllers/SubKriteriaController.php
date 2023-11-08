@@ -11,8 +11,9 @@ class SubKriteriaController extends Controller
 {
     public function index()
     {
-        $data = sub_kriteria::with('alternatif')->get();
-        return view("dashboard.sub_kriteria.index")->with('data', $data);
+        $data = sub_kriteria::all();
+        // return view("dashboard.sub_kriteria.index")->with('data', $data);
+        return view("dashboard.sub_kriteria.index", compact("data"));
     }
 
     public function create()

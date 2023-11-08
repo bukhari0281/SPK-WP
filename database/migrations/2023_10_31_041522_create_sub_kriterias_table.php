@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('sub_kriterias', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('alternatif_id')->constrained('alternatifs')->cascadeOnDelete();
+            $table->foreignId('kriteria_id')->constrained('kriterias')->cascadeOnDelete();
             $table->string('kode_sub_kriteria');
             $table->string('name');
             $table->unsignedInteger('nilai')->default(0);
             $table->text('keterangan')->nullable;
-            $table->foreignId('alternatif_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

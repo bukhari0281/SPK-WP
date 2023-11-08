@@ -29,16 +29,20 @@ class KasusController extends Controller
 
     public function store(Request $request)
     {
+        Session::flash('kode', $request->name);
         Session::flash('name', $request->name);
         $request->validate(
             [
+                'kode' => 'required',
                 'name' => 'required',
             ],[
+                'kode.requred' => 'kode wajib diisi',
                 'name.requred' => 'name wajib diisi',
             ]
         );
 
         $data = [
+            'kode'=>$request->kode,
             'name'=>$request->name,
         ];
         kasus::create($data);

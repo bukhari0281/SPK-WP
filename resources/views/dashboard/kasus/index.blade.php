@@ -17,8 +17,9 @@
             <thead>
                 <tr>
                     <th class="col-1">No</th>
+                    <th class="">Kode Kasus</th>
                     <th class="">Nama Kasus</th>
-                    <th class="">Aksi</th>
+                    <th class="col-2">Aksi</th>
                     {{-- <th class="">Kriteria</th> --}}
                 </tr>
             </thead>
@@ -27,6 +28,7 @@
                 <?php $i=1; ?>
                 <tr>
                     <td>{{ $i }}</td>
+                    <td>{{ $item->kode }}</td>
                     <td>{{ $item->name }}</td>
                     <td class="">
                         <a href="{{ route('detail_kasus', $item->id) }}" class="btn btn-sm btn-outline-primary">Detail Kasus</a>

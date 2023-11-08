@@ -8,7 +8,7 @@
             <thead>
                 <tr>
                     <th class="col-1">No</th>
-                    <th class="col-1">Alternatif</th>
+                    <th class="col-1">Kode Kriteria</th>
                     <th class="col-2 ">Kode Sub Kriteria</th>
                     <th class="col-1">Sub Kriteria</th>
                     <th class="col-1">Nilai</th>
@@ -21,7 +21,7 @@
                 @foreach ($data as $item)
                 <tr>
                     <td>{{ $i }}</td>
-                    <td>{{ $item->alternatif->kode() }}</td>
+                    <td>{{ $item->kriteria->kode() }}</td>
                     <td>{{ $item->kode_sub_kriteria }}</td>
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->nilai }}</td>

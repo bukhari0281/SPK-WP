@@ -11,9 +11,18 @@ class sub_kriteria extends Model
 
 	protected $guarded = [];
 
+    public function nilai()
+    {
+        return $this->nilai;
+    }
+
 
     public function alternatif()
 	{
 		return $this->belongsTo(alternatif::class);
+	}
+    public function kriteria()
+	{
+		return $this->belongsTo(Kriteria::class);
 	}
 }

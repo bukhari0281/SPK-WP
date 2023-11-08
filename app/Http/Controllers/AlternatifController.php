@@ -11,8 +11,8 @@ class AlternatifController extends Controller
 {
     public function index()
     {
-        $data_alternatif = alternatif::orderBy('kode')->get();
-        return view('dashboard.alternatif.index', compact('data_alternatif'));
+        $data_alternatif = alternatif::all();
+        return view('dashboard.alternatif.index',compact('data_alternatif'));
     }
 
     public function create()

@@ -10,11 +10,11 @@ class Kasus extends Model
 {
     use HasFactory;
     protected $table = 'kasuses';
-    protected $fillable = ['kriteria_id','name'];
+    protected $fillable = ['kode','name'];
 
-    public function kriteria_id()
+    public function kode()
     {
-        return $this->kriteria_id;
+        return $this->kode;
     }
     public function name()
     {

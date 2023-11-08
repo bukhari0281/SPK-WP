@@ -22,8 +22,14 @@ class alternatif extends Model
     }
 
 	// relasi ke tabel kriteria
-	public function sub_kriteria()
+	public function kriteria()
 	{
 		return $this->hasMany(Kriteria::class);
+	}
+
+	// relasi ke tabel sub kriteria
+	public function sub_kriteria()
+	{
+		return $this->hasMany(sub_kriteria::class);
 	}
 }
