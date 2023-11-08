@@ -15,7 +15,10 @@ class sub_kriteria extends Model
     {
         return $this->nilai;
     }
-
+    public function name()
+    {
+        return $this->name;
+    }
 
     public function alternatif()
 	{

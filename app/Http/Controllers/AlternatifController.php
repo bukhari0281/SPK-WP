@@ -12,7 +12,7 @@ class AlternatifController extends Controller
     public function index()
     {
         $data_alternatif = alternatif::all();
-        return view('dashboard.alternatif.index',compact('data_alternatif'));
+        return view('dashboard.alternatif.index')->with('data_alternatif', $data_alternatif);
     }
 
     public function create()

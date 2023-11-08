@@ -29,7 +29,17 @@
                     <td>{{ $i }}</td>
                     <td>{{ $alt->kode }}</td>
                     <td>{{ $alt->name }}</td>
-                    <td>{{ $alt->sub_kriteria }}</td>
+
+                    <td>
+                        @foreach ($alt->sub_kriteria as $item)
+                        <ul>
+                            <li>
+
+                                {{ $item->name() }}
+                            </li>
+                        </ul>
+                        @endforeach
+                    </td>
                     <td class="">
                         <a href="{{ route('edit_alternatif', $alt->id) }}" class="btn btn-sm btn-outline-warning">Edit</a>
                         <a href="" class="btn btn-sm btn-outline-danger">Del</a>
