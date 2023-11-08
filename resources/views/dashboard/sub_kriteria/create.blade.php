@@ -18,9 +18,9 @@
         </select>
         </div>
         <div class="mb-3 col-5">
-          <label for="kode_sub_riteria" class="form-label">Kode Sub Kriteria</label>
+          <label for="kode_sub_kriteria" class="form-label">Kode Sub Kriteria</label>
           <input type="text"
-            class="form-control form-control-sm" name="kode_sub_riteria" id="kode_sub_riteria" aria-describedby="helpId" placeholder="kode_sub_riteria" value="{{ Session::get('kode_sub_riteria') }}">
+            class="form-control form-control-sm" name="kode_sub_kriteria" id="kode_sub_kriteria" aria-describedby="helpId" placeholder="kode_sub_kriteria" value="{{ Session::get('kode_sub_riteria') }}">
         </div>
         <div class="mb-3 col-5">
           <label for="name" class="form-label">Sub Kriteria</label>

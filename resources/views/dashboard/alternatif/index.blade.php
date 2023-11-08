@@ -1,8 +1,16 @@
 @extends('dashboard.layout')
 
 @section('body')
-    <p class="card-title">Kriteria</p>
-    <div class="pb-3"><a href="{{ route('create_alternatif') }}" class="btn btn-primary text-white"> + Tambah Kriteria dan Bobot</a></div>
+<div class="text-center mb-5">
+    <div class="">
+            <h1 class="display-5 fw-bold ">Alternatif</h1>
+    </div>
+    <div class="">
+        <a href="{{ route('create_alternatif') }}" class="btn btn-outline-secondary"> + Tambah Kriteria dan Bobot</a>
+
+    </div>
+
+</div>
     <div class="table-responsive">
         <table class="table table-stripped">
             <thead>
@@ -21,8 +29,8 @@
                     <td>{{ $alt->kode }}</td>
                     <td>{{ $alt->name }}</td>
                     <td class="">
-                        <a href="{{ route('edit_alternatif', $alt->id) }}" class="btn btn-sm btn-warning text-white">Edit</a>
-                        <a href="" class="btn btn-sm btn-danger text-white">Del</a>
+                        <a href="{{ route('edit_alternatif', $alt->id) }}" class="btn btn-sm btn-outline-warning">Edit</a>
+                        <a href="" class="btn btn-sm btn-outline-danger">Del</a>
                     </td>
                 </tr>
                 <?php $i++; ?>

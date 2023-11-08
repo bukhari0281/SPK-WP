@@ -1,79 +1,73 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Majestic Admin</title>
-  <!-- plugins:css -->
-  <link rel="stylesheet" href="{{ asset('assets') }}/vendors/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="{{ asset('assets') }}/vendors/base/vendor.bundle.base.css">
-  <!-- endinject -->
-  <!-- plugin css for this page -->
-  <link rel="stylesheet" href="{{ asset('assets') }}/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
-  <!-- End plugin css for this page -->
-  <!-- inject:css -->
-  <link rel="stylesheet" href="{{ asset('assets') }}/css/style.css">
-  <!-- endinject -->
-  <link rel="shortcut icon" href="{{ asset('assets') }}/images/favicon.png" />
-</head>
-<body>
-  <div class="container-scroller">
-    @include('dashboard.navbar')
-    <div class="container-fluid page-body-wrapper">
-      @include('dashboard.sidebar')
-      <!-- partial -->
-      <div class="main-panel">
-        <div class="content-wrapper">
-            @include('dashboard.pesan')
-          <div class="row">
-            <div class="col-md-12 stretch-card">
-              <div class="card">
-                <div class="card-body">
-                    @yield('body')
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+
+  <main class="">
+      <div class="container py-4 p-3">
+        <header class="pb-3 mb-4 border-bottom ">
+            <div class="row">
+                <div class="col-6">
+                    <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" class="me-2" viewBox="0 0 118 94" role="img"><title>Bootstrap</title><path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z" fill="currentColor"></path></svg>
+                        <span class="fs-4">Jumbotron example</span>
+                      </a>
+
                 </div>
-              </div>
+                <div class="col-6">
+                    <div class="container">
+                        <ul class="list-inline list-group-horizontal h4">
+                          <li class="list-inline-item text-black">
+                            <a class="nav-link text-dark"href="{{ route('home') }}">Beranda</a>
+                          </li>
+                          <li class="list-inline-item">
+                            <a class="nav-link text-dark" href="{{ route('kasus') }}">Kasus</a>
+                          </li>
+                          <li class="list-inline-item">
+                            <a class="nav-link text-dark" href="{{ route('kriteria') }}">Kriteria</a>
+                          </li>
+                          <li class="list-inline-item">
+                            <a class="nav-link text-dark" href="{{ route('alternatif') }}">Alternatif</a>
+                          </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
+          </header>
+      <div class="p-5 mb-4 bg-light rounded-3 border rounded-3 bg-gradient">
+        <div class="container-fluid py-5 ">
+            @yield('body')
+        </div>
+      </div>
+
+      {{-- <div class="row align-items-md-stretch">
+        <div class="col-md-6">
+          <div class="h-100 p-5 text-white bg-dark rounded-3">
+            <h2>Change the background</h2>
+            <p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look. Then, mix and match with additional component themes and more.</p>
+            <button class="btn btn-outline-light" type="button">Example button</button>
           </div>
         </div>
-        <!-- content-wrapper ends -->
-        <!-- partial:partials/_footer.html -->
-        <footer class="footer">
-        <div class="d-sm-flex justify-content-center justify-content-sm-between">
-          <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © <a href="https://www.bootstrapdash.com/" target="_blank">bootstrapdash.com </a>2021</span>
-          <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Only the best <a href="https://www.bootstrapdash.com/" target="_blank"> Bootstrap dashboard  </a> templates</span>
+        <div class="col-md-6">
+          <div class="h-100 p-5 bg-light border rounded-3">
+            <h2>Add borders</h2>
+            <p>Or, keep it light and add a border for some added definition to the boundaries of your content. Be sure to look under the hood at the source HTML here as we've adjusted the alignment and sizing of both column's content for equal-height.</p>
+            <button class="btn btn-outline-secondary" type="button">Example button</button>
+          </div>
         </div>
-        </footer>
-        <!-- partial -->
-      </div>
-      <!-- main-panel ends -->
+      </div> --}}
+
+      <footer class="pt-3 mt-4 text-muted border-top text-center">
+        &copy; 2021
+      </footer>
     </div>
-    <!-- page-body-wrapper ends -->
-  </div>
-  <!-- container-scroller -->
-
-  <!-- plugins:js -->
-  <script src="{{ asset('assets') }}/vendors/base/vendor.bundle.base.js"></script>
-  <!-- endinject -->
-  <!-- Plugin js for this page-->
-  <script src="{{ asset('assets') }}/vendors/chart.js/Chart.min.js"></script>
-  <script src="{{ asset('assets') }}/vendors/datatables.net/jquery.dataTables.js"></script>
-  <script src="{{ asset('assets') }}/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
-  <!-- End plugin js for this page-->
-  <!-- inject:js -->
-  <script src="{{ asset('assets') }}/js/off-canvas.js"></script>
-  <script src="{{ asset('assets') }}/js/hoverable-collapse.js"></script>
-  <script src="{{ asset('assets') }}/js/template.js"></script>
-  <!-- endinject -->
-  <!-- Custom js for this page-->
-  <script src="{{ asset('assets') }}/js/dashboard.js"></script>
-  <script src="{{ asset('assets') }}/js/data-table.js"></script>
-  <script src="{{ asset('assets') }}/js/jquery.dataTables.js"></script>
-  <script src="{{ asset('assets') }}/js/dataTables.bootstrap4.js"></script>
-  <!-- End custom js for this page-->
-
-  <script src="js/jquery.cookie.js" type="text/javascript"></script>
-</body>
-
+  </main>
 </html>

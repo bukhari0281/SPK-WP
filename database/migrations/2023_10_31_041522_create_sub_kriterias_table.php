@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('sub_kriterias', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_sub_riteria');
+            $table->string('kode_sub_kriteria');
             $table->string('name');
             $table->unsignedInteger('nilai')->default(0);
             $table->text('keterangan')->nullable;

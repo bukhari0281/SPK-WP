@@ -1,8 +1,16 @@
 @extends('dashboard.layout')
 
 @section('body')
-    <p class="card-title">Kriteria</p>
-    <div class="pb-3"><a href="{{ route('create_kriteria') }}" class="btn btn-primary text-white"> + Tambah Kriteria dan Bobot</a></div>
+<div class="text-center mb-5">
+    <div class="">
+            <h1 class="display-5 fw-bold ">Kriteria</h1>
+    </div>
+    <div class="">
+        <a href="{{ route('create_kriteria') }}" class="btn btn-outline-secondary"> + Tambah Kasus</a>
+
+    </div>
+
+</div>
     <div class="table-responsive">
         <table class="table table-stripped">
             <thead>
@@ -34,4 +42,5 @@
             </tbody>
         </table>
     </div>
+
 @endsection

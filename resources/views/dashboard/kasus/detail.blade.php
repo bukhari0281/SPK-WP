@@ -12,9 +12,9 @@
         <div class="card-header">
             <h3 class="p p-2 pb-1 text-center">Data Bobot</h3>
         </div>
-            <div class="card-body ">
+            <div class="card-body text-center">
 
-                <table class="table table-borderless">
+                <table class="table table-borderless  pb-1">
                     <thead  class="text-center">
                     <tr>
                         <th scope="col">Nomer</th>
@@ -47,10 +47,11 @@
                         </tr>
                                 <?php $i++; ?>
 
-                            </tbody>
+                    </tbody>
 
-                        </table>
-                        <a href="{{ route('pembobotan', $detail_kasus->id) }}" class="btn btn-primary text-white">tes</a>
+                </table>
+                        <hr>
+                        <a href="{{ route('pembobotan', $detail_kasus->id) }}" class="btn btn-primary text-white mt-1">Normalisasi Pembobotan</a>
             </div>
     </div>
 

@@ -12,6 +12,7 @@
     <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
       <ul class="navbar-nav navbar-nav-right">
         <li class="nav-item nav-profile dropdown">
+
           <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
             <img src="{{ asset('assets') }}/images/faces/face5.jpg" alt="profile"/>
             <span class="nav-profile-name">Louis Barnett</span>

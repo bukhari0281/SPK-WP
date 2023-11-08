@@ -29,26 +29,26 @@ class SubKriteriaController extends Controller
         Session::flash('keterangan', $request->keterangan);
         $request->validate(
             [
-                'kode_sub_riteria' => 'required',
+                'kode_sub_kriteria' => 'required',
                 'name' => 'required',
                 'nilai' => 'required',
                 'keterangan' => 'nullable'
             ],[
-                'name.kode_sub_riteria' => 'name wajib diisi',
+                'kode_sub_kriteria.requred' => 'kode wajib diisi',
                 'name.requred' => 'name wajib diisi',
                 'nilai.requred' => 'nilai wajib diisi',
-                'keterangan.requred' => 'keterangan wajib diisi'
+                'keterangan.nullable' => 'keterangan wajib diisi'
             ]
         );
 
         $data = [
-            'kode_sub_riteria'=>$request->kode_sub_riteria,
+            'kode_sub_kriteria'=>$request->kode_sub_kriteria,
             'name'=>$request->name,
             'nilai'=>$request->nilai,
-            'keterangan'=>$request->nilai,
+            'keterangan'=>$request->keterangan,
             'alternatif_id'=>$request->alternatif_id,
         ];
         sub_kriteria::create($data);
-        return redirect()->route("store_sub_kriteria")->with('success', 'Berhasil menambahkan data');
+        return redirect()->route("sub_kriteria")->with('success', 'Berhasil menambahkan data');
     }
 }
