@@ -12,9 +12,7 @@
                 <table class="table table-borderless">
                     <thead  class="text-center">
                     <tr>
-
                         @foreach ($kriterias->get_kriteria as $k)
-
                         <th scope="col">{{ $k->kode }} = bobot ({{ $k->bobot }})</th>
                         @endforeach
                     </tr>
