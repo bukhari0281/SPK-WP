@@ -12,43 +12,21 @@
                 <table class="table table-borderless">
                     <thead  class="text-center">
                     <tr>
-                        <th scope="col">Nomer</th>
-                        <th scope="col">Kode</th>
-                        <th scope="col">Bobot</th>
-                        <th scope="col">Pembobotan</th>
+
+                        @foreach ($kriterias->get_kriteria as $k)
+
+                        <th scope="col">{{ $k->kode }} = bobot ({{ $k->bobot }})</th>
+                        @endforeach
                     </tr>
                     </thead>
                     <tbody  class="text-center">
-                        <?php $i=1; ?>
                         <tr>
-                            @foreach ($kriterias->get_kriteria as $item)
-                            {{-- <td>{{ $i }}</td> --}}
-                            <td>{{ $i++ }}</td>
-                            <td>{{ $item->kode }}</td>
-                            <td>{{ $item->bobot }}</td>
-                            <td>
-                                <ul class="">
-                                    @foreach ($results as $result)
-                                        <li class="">{{ $item->kode }} = {{ $result }}</li>
-                                    @endforeach
-                                </ul>
-
-                            </td>
-                            @foreach($results as $index => $result)
-                                <tr>
-                                    <td>Kriteria {{ $index + 1 }}</td>
-                                    <td>{{ $result }}</td>
-                                </tr>
+                            @foreach ($bobots as $d)
+                            <td>= {{ $d }}</td>
                             @endforeach
-
-
                         </tr>
-                        @endforeach
-                                <?php $i++; ?>
-
-                            </tbody>
-
-                        </table>
+                    </tbody>
+                </table>
             </div>
     </div>
 

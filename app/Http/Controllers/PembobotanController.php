@@ -36,7 +36,7 @@ class PembobotanController extends Controller
 
 		$bobots = [];
 		foreach ($bobot as $kr) {
-			$bobots[] = $kr->bobot;
+			$bobots[] = $kr->bobot / $bobot->sum('bobot');
 
 		}
         // $txt = array(5,3,4,4,2);
@@ -48,6 +48,7 @@ class PembobotanController extends Controller
         foreach ($bobots as $bobot) {
             $results[] = $bobot / $sum;
         }
+
 
         // Tampilkan hasil pembagian
         // dd($results);
@@ -62,9 +63,9 @@ class PembobotanController extends Controller
         //     $r = $value / $sum;
         //   echo "$value / $sum = $r  <br>";
         // }
-        // dd($sum);
+        // dd($bobots);
 
-            return view('dashboard.pembobotan.index', compact('results', 'kriterias'));
+            return view('dashboard.pembobotan.index', compact('bobots', 'kriterias'));
         } catch (\Exception $e) {
             // Tangani kesalahan
             return $e->getMessage();
