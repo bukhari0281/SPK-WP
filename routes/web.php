@@ -33,6 +33,7 @@ Route::prefix('dashboard')->group(function () {
     Route::get('kriteria', [KriteriaDanBobotController::class,'index'])->name('kriteria');
     Route::get('kriteria/create', [KriteriaDanBobotController::class,'create'])->name('create_kriteria');
     Route::post('kriteria', [KriteriaDanBobotController::class,'store'])->name('store_kriteria');
+
     Route::get('kriteria/{id}/edit', [KriteriaDanBobotController::class,'edit'])->name('edit_kriteria');
     // end of kriteria dan bobot
 
@@ -56,8 +57,9 @@ Route::prefix('dashboard')->group(function () {
 
     // sub kriteria
     Route::get('subkriteria', [SubKriteriaController::class, 'index'])->name('sub_kriteria');
-    Route::get('subkriteria/create', [SubKriteriaController::class, 'create'])->name('create_sub_kriteria');
-    Route::post('subkriteria/create', [SubKriteriaController::class, 'store'])->name('store_sub_kriteria');
+    Route::get('kriteria/{id}/subkriteria/create', [SubKriteriaController::class,'create'])->name('create_sub_kriteria');
+    Route::post('kriteria/{id}/subkriteria', [SubKriteriaController::class,'tambahSubKriteria'])->name('tambah_sub_kriteria');
+    Route::post('subkriteria/create', [SubKriteriaController::class, 'store'])->name('edit_sub_kriteria');
     // ens sub kriteria
 });
 

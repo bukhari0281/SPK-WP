@@ -33,7 +33,10 @@
                     <td>{{ $item->kode }}</td>
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->bobot }}</td>
-                    <td>{{ $item->get_subkriteria->count() }}</td>
+                    <td>
+                        {{ $item->get_subkriteria->count() }} Data
+                        <a href="{{ route('create_sub_kriteria', $item->id) }}" class="btn btn-sm btn-warning text-white">+</a>
+                    </td>
                     <td class="">
                         <a href="{{ route('edit_kriteria', $item->id) }}" class="btn btn-sm btn-warning text-white">Edit</a>
                         <a href="" class="btn btn-sm btn-danger text-white">Del</a>
