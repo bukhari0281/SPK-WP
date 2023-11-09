@@ -20,8 +20,8 @@
                     <th class="col-1">Kode</th>
                     <th class="col-2">Kriteria</th>
                     <th class="col-2">Bobot</th>
-                    <th class="col-2">Sub Kriteria</th>
-                    <th class="col-2">Aksi</th>
+                    <th class="col-2 text-center">Sub Kriteria</th>
+                    <th class="col-2 text-center">Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,12 +32,12 @@
                     <td>{{ $item->Kasus->kode() }}</td>
                     <td>{{ $item->kode }}</td>
                     <td>{{ $item->name }}</td>
-                    <td>{{ $item->bobot }}</td>
-                    <td>
+                    <td >{{ $item->bobot }}</td>
+                    <td class="text-center">
                         {{ $item->get_subkriteria->count() }} Data
-                        <a href="{{ route('create_sub_kriteria', $item->id) }}" class="btn btn-sm btn-warning text-white">+</a>
+                        <a href="{{ route('create_sub_kriteria', $item->id) }}" class="btn btn-sm btn-primary text-white">+</a>
                     </td>
-                    <td class="">
+                    <td class="text-center">
                         <a href="{{ route('edit_kriteria', $item->id) }}" class="btn btn-sm btn-warning text-white">Edit</a>
                         <a href="" class="btn btn-sm btn-danger text-white">Del</a>
                     </td>

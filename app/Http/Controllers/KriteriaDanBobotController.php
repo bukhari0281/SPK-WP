@@ -44,6 +44,7 @@ class KriteriaDanBobotController extends Controller
             'kasus_id'=>$request->kasus_id,
             'bobot'=>$request->bobot,
         ];
+
         Kriteria::create($data);
         return redirect()->route("kriteria")->with('success', 'Berhasil menambahkan data');
     }

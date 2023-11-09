@@ -56,48 +56,49 @@ class SubKriteriaController extends Controller
             'name'=>$request->name,
             'nilai'=>$request->nilai,
             'keterangan'=>$request->keterangan,
-            'alternatif_id'=>$request->alternatif_id,
         ];
         sub_kriteria::create($data);
-        return redirect()->route("sub_kriteria")->with('success', 'Berhasil menambahkan data');
+        return redirect()->route("kriteria")->with('success', 'Berhasil menambahkan data');
     }
 
     public function tambahSubKriteria(Request $request, $id)
-        {
-            // Validasi input
-            $request->validate([
-                [
-                    'kode_sub_kriteria' => 'required',
-                    'name' => 'required',
-                    'nilai' => 'required',
-                    'keterangan' => 'nullable'
-                ],[
-                    'kode_sub_kriteria.requred' => 'kode wajib diisi',
-                    'name.requred' => 'name wajib diisi',
-                    'nilai.requred' => 'nilai wajib diisi',
-                    'keterangan.nullable' => 'keterangan wajib diisi'
-                ]
-            ]);
+    {
+        Session::flash('kode_sub_kriteria', $request->kode_sub_kriteria);
+        Session::flash('name', $request->name);
+        Session::flash('nilai', $request->nilai);
+        Session::flash('keterangan', $request->keterangan);
+        // Validasi input
+        $request->validate([
+            [
+                'kode_sub_kriteria' => 'required',
+                'name' => 'required',
+                'nilai' => 'required',
+                'keterangan' => 'required'
+            ],[
+                'kode_sub_kriteria.requred' => 'kode wajib diisi',
+                'name.requred' => 'name wajib diisi',
+                'nilai.requred' => 'nilai wajib diisi',
+                'keterangan.required' => 'keterangan wajib diisi'
+            ]
+        ]);
 
-            // Temukan kriteria berdasarkan ID
-            $kriteria = Kriteria::find($id);
+        // Temukan kriteria berdasarkan ID
+        $kriteria = Kriteria::find($id);
 
-            if (!$kriteria) {
-                return response()->json(['message' => 'Kriteria tidak ditemukan'], 404);
-            }
-
-            // Tambahkan data sub_kriteria
-            $subKriteria = [
-                'kode_sub_kriteria'=>$request->kode_sub_kriteria,
-                'name'=>$request->name,
-                'nilai'=>$request->nilai,
-                'keterangan'=>$request->keterangan,
-                'alternatif_id'=>$request->alternatif_id,
-            ];
-
-            // $kriteria->subKriterias()->create($subKriteria);
-            sub_kriteria::create($kriteria->subKriterias());
-            return redirect()->route("kriteria")->with('success', 'Berhasil menambahkan data');
+        if (!$kriteria) {
+            return response()->json(['message' => 'Kriteria tidak ditemukan'], 404);
         }
 
+        // Tambahkan data sub_kriteria
+        $subKriteria = new sub_kriteria([
+            'kode_sub_kriteria' => $request->input('kode_sub_kriteria'),
+            'name' => $request->input('name'),
+            'nilai' => $request->input('nilai'),
+            'keterangan' => $request->input('keterangan'),
+        ]);
+        $kriteria->subKriteria()->save($subKriteria);
+
+        // sub_kriteria::create($subKriteria);
+        return redirect()->route("sub_kriteria")->with('success', 'Berhasil menambahkan data');
+    }
 }

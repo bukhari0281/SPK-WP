@@ -1,14 +1,14 @@
 @extends('dashboard.layout')
 
 @section('body')
-        <p>
-            @error('kriteria')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-            @enderror
-            {{ $kriteria->id }}
-        </p>
+    <p>
+        @error('kriteria')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+        @enderror
+        {{ $kriteria->id }}
+    </p>
     <div class="pb-3 pt-3">
         <a href="{{ route('kriteria') }}" class="btn btn-secondary"><< Kembali</a>
     </div>

@@ -58,8 +58,8 @@ Route::prefix('dashboard')->group(function () {
     // sub kriteria
     Route::get('subkriteria', [SubKriteriaController::class, 'index'])->name('sub_kriteria');
     Route::get('kriteria/{id}/subkriteria/create', [SubKriteriaController::class,'create'])->name('create_sub_kriteria');
-    Route::post('kriteria/{id}/subkriteria', [SubKriteriaController::class,'tambahSubKriteria'])->name('tambah_sub_kriteria');
-    Route::post('subkriteria/create', [SubKriteriaController::class, 'store'])->name('edit_sub_kriteria');
+    Route::post('kriteria/', [SubKriteriaController::class,'tambahSubKriteria'])->name('tambah_sub_kriteria');
+    Route::post('subkriteria/create', [SubKriteriaController::class, 'store'])->name('store_sub_kriteria');
     // ens sub kriteria
 });
 
