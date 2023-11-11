@@ -63,10 +63,10 @@ class SubKriteriaController extends Controller
 
     public function tambahSubKriteria(Request $request, $id)
     {
-        Session::flash('kode_sub_kriteria', $request->kode_sub_kriteria);
-        Session::flash('name', $request->name);
-        Session::flash('nilai', $request->nilai);
-        Session::flash('keterangan', $request->keterangan);
+        // Session::flash('kode_sub_kriteria', $request->kode_sub_kriteria);
+        // Session::flash('name', $request->name);
+        // Session::flash('nilai', $request->nilai);
+        // Session::flash('keterangan', $request->keterangan);
         // Validasi input
         $request->validate([
             [
@@ -91,13 +91,15 @@ class SubKriteriaController extends Controller
 
         // Tambahkan data sub_kriteria
         $subKriteria = new sub_kriteria([
-            'kode_sub_kriteria' => $request->input('kode_sub_kriteria'),
+            'kode_sub_kriteria' => $request->input(''),
             'name' => $request->input('name'),
             'nilai' => $request->input('nilai'),
             'keterangan' => $request->input('keterangan'),
         ]);
-        $kriteria->subKriteria()->save($subKriteria);
+        $kriteria->get_subkriteria()->save($subKriteria);
 
+        $query = $kriteria->get_subkriteria()->toSql();
+        dd($query);
         // sub_kriteria::create($subKriteria);
         return redirect()->route("sub_kriteria")->with('success', 'Berhasil menambahkan data');
     }
