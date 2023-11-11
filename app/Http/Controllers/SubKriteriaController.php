@@ -32,34 +32,34 @@ class SubKriteriaController extends Controller
         return view("dashboard.sub_kriteria.create", compact("kriteria"));
     }
 
-    public function store(Request $request)
-    {
-        Session::flash('name', $request->name);
-        Session::flash('nilai', $request->nilai);
-        Session::flash('keterangan', $request->keterangan);
-        $request->validate(
-            [
-                'kode_sub_kriteria' => 'required',
-                'name' => 'required',
-                'nilai' => 'required',
-                'keterangan' => 'nullable'
-            ],[
-                'kode_sub_kriteria.requred' => 'kode wajib diisi',
-                'name.requred' => 'name wajib diisi',
-                'nilai.requred' => 'nilai wajib diisi',
-                'keterangan.nullable' => 'keterangan wajib diisi'
-            ]
-        );
+    // public function store(Request $request)
+    // {
+    //     Session::flash('name', $request->name);
+    //     Session::flash('nilai', $request->nilai);
+    //     Session::flash('keterangan', $request->keterangan);
+    //     $request->validate(
+    //         [
+    //             'kode_sub_kriteria' => 'required',
+    //             'name' => 'required',
+    //             'nilai' => 'required',
+    //             'keterangan' => 'nullable'
+    //         ],[
+    //             'kode_sub_kriteria.requred' => 'kode wajib diisi',
+    //             'name.requred' => 'name wajib diisi',
+    //             'nilai.requred' => 'nilai wajib diisi',
+    //             'keterangan.nullable' => 'keterangan wajib diisi'
+    //         ]
+    //     );
 
-        $data = [
-            'kode_sub_kriteria'=>$request->kode_sub_kriteria,
-            'name'=>$request->name,
-            'nilai'=>$request->nilai,
-            'keterangan'=>$request->keterangan,
-        ];
-        sub_kriteria::create($data);
-        return redirect()->route("kriteria")->with('success', 'Berhasil menambahkan data');
-    }
+    //     $data = [
+    //         'kode_sub_kriteria'=>$request->kode_sub_kriteria,
+    //         'name'=>$request->name,
+    //         'nilai'=>$request->nilai,
+    //         'keterangan'=>$request->keterangan,
+    //     ];
+    //     sub_kriteria::create($data);
+    //     return redirect()->route("kriteria")->with('success', 'Berhasil menambahkan data');
+    // }
 
     public function tambahSubKriteria(Request $request, $id)
     {
