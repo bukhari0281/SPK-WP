@@ -14,13 +14,13 @@
         <a href="{{ route('kriteria') }}" class="btn btn-secondary"><< Kembali</a>
     </div>
 
-    <form action="{{ route('tambah_sub_kriteria', $kriteria->id) }}" method="POST">
+    <form action="{{ url("dashboard/kriteria/{$kriteria->id}/subkriteria") }}" method="POST">
         @csrf
-        {{-- <div class="mb-3 col-5">
+        <div class="mb-3 col-5">
           <label for="kode_sub_kriteria" class="form-label">Kode Kriteria</label>
           <input type="text"
             class="form-control form-control-sm" name="kode_sub_kriteria" id="kode_sub_kriteria" aria-describedby="helpId" placeholder="{{ $kriteria->kode }}" value="" readonly>
-        </div> --}}
+        </div>
         <div class="mb-3 col-5">
           <label for="kode_sub_kriteria" class="form-label">Kode Sub Kriteria</label>
           <input type="text"

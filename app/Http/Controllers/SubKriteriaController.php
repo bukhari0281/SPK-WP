@@ -24,10 +24,11 @@ class SubKriteriaController extends Controller
         // Temukan kriteria berdasarkan ID
         $kriteria = Kriteria::find($id);
 
-        if (!$kriteria) {
-            return redirect()->route('kriteria.index')->with('error', 'Kriteria tidak ditemukan.');
-        }
+        // if (!$kriteria) {
+        //     return response()->json('error', 'Kriteria tidak ditemukan.');
+        // }
 
+        // dd($kriteria);
         // dd($kriteria);
         return view("dashboard.sub_kriteria.create", compact("kriteria"));
     }
@@ -63,10 +64,10 @@ class SubKriteriaController extends Controller
 
     public function tambahSubKriteria(Request $request, $id)
     {
-        // Session::flash('kode_sub_kriteria', $request->kode_sub_kriteria);
-        // Session::flash('name', $request->name);
-        // Session::flash('nilai', $request->nilai);
-        // Session::flash('keterangan', $request->keterangan);
+        Session::flash('kode_sub_kriteria', $request->kode_sub_kriteria);
+        Session::flash('name', $request->name);
+        Session::flash('nilai', $request->nilai);
+        Session::flash('keterangan', $request->keterangan);
         // Validasi input
         $request->validate([
             [
@@ -90,17 +91,17 @@ class SubKriteriaController extends Controller
         }
 
         // Tambahkan data sub_kriteria
-        $subKriteria = new sub_kriteria([
-            'kode_sub_kriteria' => $request->input(''),
-            'name' => $request->input('name'),
-            'nilai' => $request->input('nilai'),
-            'keterangan' => $request->input('keterangan'),
-        ]);
-        $kriteria->get_subkriteria()->save($subKriteria);
+        // $subKriteria = new sub_kriteria([
+        //     'kode_sub_kriteria' => $request->input(''),
+        //     'name' => $request->input('name'),
+        //     'nilai' => $request->input('nilai'),
+        //     'keterangan' => $request->input('keterangan'),
+        // ]);
+        // $kriteria->get_subkriteria()->save($subKriteria);
 
         $query = $kriteria->get_subkriteria()->toSql();
         dd($query);
         // sub_kriteria::create($subKriteria);
-        return redirect()->route("sub_kriteria")->with('success', 'Berhasil menambahkan data');
+        return redirect()->route('kriteria')->with('error', 'Berhasil menambahkan data');
     }
 }
