@@ -91,17 +91,21 @@ class SubKriteriaController extends Controller
         }
 
         // Tambahkan data sub_kriteria
-        // $subKriteria = new sub_kriteria([
-        //     'kode_sub_kriteria' => $request->input(''),
-        //     'name' => $request->input('name'),
-        //     'nilai' => $request->input('nilai'),
-        //     'keterangan' => $request->input('keterangan'),
-        // ]);
-        // $kriteria->get_subkriteria()->save($subKriteria);
+        $subKriteria = new sub_kriteria([
+            'kode_sub_kriteria' => $request->input('kode_sub_kriteria'),
+            'name' => $request->input('name'),
+            'nilai' => $request->input('nilai'),
+            'keterangan' => $request->input('keterangan'),
+        ]);
+        $kriteria->get_subkriteria()->save($subKriteria);
 
-        $query = $kriteria->get_subkriteria()->toSql();
-        dd($query);
+        dd($request->all());
         // sub_kriteria::create($subKriteria);
-        return redirect()->route('kriteria')->with('error', 'Berhasil menambahkan data');
+        // return response()->json(['message' => 'Data berhasil ditambahkan'], 200);
+        // return redirect()->route('kriteria')->with('error', 'Berhasil menambahkan data');
+        return redirect()->route('kriteria.tambah-sub-kriteria', $id)
+            //    ->withErrors($validator)
+               ->withInput();
+
     }
 }

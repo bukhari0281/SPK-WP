@@ -9,7 +9,8 @@ class sub_kriteria extends Model
 {
     use HasFactory;
 
-	protected $guarded = [];
+	protected $table = 'sub_kriterias';
+    protected $fillable = ['kode_sub_kriteria','name','nilai','keterangan'];
 
     public function nilai()
     {
