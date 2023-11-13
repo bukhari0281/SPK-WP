@@ -17,17 +17,18 @@
                 <tr>
                     <th class="col-1">No</th>
                     <th class="col-2">Alternatif</th>
-                    <th class="col-1">Sub Kriteria</th>
+                    @foreach ($alternatif as $a)
+                    <th class="col-1">{{ $a->alternatif->kode() }}</th>
+                    @endforeach
                     <th class="col-2 text-center">Aksi</th>
                 </tr>
             </thead>
             <tbody>
                 <?php $i=1; ?>
+                @foreach ($alternatif as $a)
                 <tr>
                     <td>{{ $i }}</td>
-                    @foreach ($alternatif as $a)
                     <td>{{ $a->alternatif->name() }}</td>
-                    @endforeach
                     @foreach ($alternatif as $sk)
                     <td>{{ $sk->sub_kriteria->name() }}</td>
                     @endforeach
@@ -37,6 +38,9 @@
                     </td>
                 </tr>
                 <?php $i++; ?>
+                @endforeach
+
+
             </tbody>
         </table>
     </div>

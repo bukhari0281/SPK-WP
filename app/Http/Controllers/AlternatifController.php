@@ -15,9 +15,10 @@ class AlternatifController extends Controller
         return view('dashboard.alternatif.index')->with('data_alternatif', $data_alternatif);
     }
 
-    public function create()
+    public function create($id)
     {
-        return view("dashboard.alternatif.create");
+        $alternatif = alternatif::find($id);
+        return view("dashboard.alternatif.create", compact('alternatif'));
     }
     public function store(Request $request)
     {

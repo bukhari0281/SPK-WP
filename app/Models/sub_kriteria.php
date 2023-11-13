@@ -32,6 +32,6 @@ class sub_kriteria extends Model
 
     public function nilai_alternatif()
 	{
-		return $this->belongsTo(nilai_alternatif::class);
+		return $this->hasMany(nilai_alternatif::class);
 	}
 }

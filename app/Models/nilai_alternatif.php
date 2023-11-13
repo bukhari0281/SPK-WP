@@ -14,11 +14,11 @@ class nilai_alternatif extends Model
 
     public function sub_kriteria()
 	{
-		return $this->hasMany(sub_kriteria::class);
+		return $this->belongsTo(sub_kriteria::class);
 	}
 
     public function alternatif()
 	{
-		return $this->hasMany(alternatif::class);
+		return $this->belongsTo(alternatif::class);
 	}
 }

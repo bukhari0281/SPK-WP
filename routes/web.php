@@ -67,7 +67,7 @@ Route::prefix('dashboard')->group(function () {
 
     // nilai alternatif
     Route::get('nilai_alternatif', [NilaiAlternatifController::class,'index'])->name('nilai_alternatif');
-    Route::get('nilai_alternatif/create', [NilaiAlternatifController::class,'create'])->name('create_nilai_alternatif');
+    Route::get('nilai_alternatif/create/{id}', [NilaiAlternatifController::class,'create'])->name('create_nilai_alternatif');
     Route::post('nilai_alternatif', [NilaiAlternatifController::class,'store'])->name('store_nilai_alternatif');
     // end of nilai alternatif
 });
