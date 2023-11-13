@@ -21,9 +21,9 @@ class alternatif extends Model
         return $this->name;
     }
 
-	// relasi ke tabel sub kriteria
-	public function sub_kriteria()
+	// relasi ke tabel nilai kriteria
+    public function nilai_alternatif()
 	{
-		return $this->hasMany(sub_kriteria::class);
+		return $this->belongsTo(nilai_alternatif::class);
 	}
 }

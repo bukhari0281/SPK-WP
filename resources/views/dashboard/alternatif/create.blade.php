@@ -9,15 +9,6 @@
         @csrf
 
         <div class="mb-3 col-5">
-            <label for="sub_kriteria" class="form-label">Sub Kriteria</label>
-            <select name="sub_kriteria_id" class="form-control @error('sub_kriteria_id') is-invalid @enderror">
-            <option value="">Pilih Kasus</option>
-            @foreach ($sub_kriteria as $item)
-                <option value="{{ $item->id }}">{{ $item->name() }}</option>
-            @endforeach
-            </select>
-        </div>
-        <div class="mb-3 col-5">
           <label for="kode" class="form-label">Kode Alternatif</label>
           <input type="text"
             class="form-control form-control-sm" name="kode" id="kode" aria-describedby="helpId" placeholder="kode" value="{{ Session::get('kode') }}">

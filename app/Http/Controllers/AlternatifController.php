@@ -11,14 +11,13 @@ class AlternatifController extends Controller
 {
     public function index()
     {
-        $data_alternatif = alternatif::with('sub_kriteria')->get();
+        $data_alternatif = alternatif::all();
         return view('dashboard.alternatif.index')->with('data_alternatif', $data_alternatif);
     }
 
     public function create()
     {
-        $sub_kriteria = sub_kriteria::all();
-        return view("dashboard.alternatif.create", compact('sub_kriteria'));
+        return view("dashboard.alternatif.create");
     }
     public function store(Request $request)
     {
@@ -37,7 +36,6 @@ class AlternatifController extends Controller
         $data = [
             'kode'=>$request->kode,
             'name'=>$request->name,
-            'sub_kriteria_id'=>$request->sub_kriteria_id,
         ];
         alternatif::create($data);
         return redirect()->route("kasus")->with('success', 'Berhasil menambahkan data');

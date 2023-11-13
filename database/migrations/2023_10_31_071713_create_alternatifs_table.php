@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('alternatifs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('sub_kriteria_id')->constrained()->cascadeOnDelete();
             $table->string('kode');
             $table->string('name');
             $table->timestamps();

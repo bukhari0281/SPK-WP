@@ -6,7 +6,7 @@
             <h1 class="display-5 fw-bold ">Alternatif</h1>
     </div>
     <div class="">
-        <a href="{{ route('create_alternatif') }}" class="btn btn-outline-secondary"> + Tambah Kriteria dan Bobot</a>
+        <a href="{{ route('create_alternatif') }}" class="btn btn-outline-secondary"> + Tambah Alternatif</a>
 
     </div>
 
@@ -17,9 +17,7 @@
                 <tr>
                     <th class="col-1">No</th>
                     <th class="col-2">Kode</th>
-                    <th class="col-2">Kode</th>
                     <th class="">Alternatif</th>
-                    <th class="">Nilai</th>
                     <th class="col-2">Aksi</th>
                 </tr>
             </thead>
@@ -30,8 +28,6 @@
                     <td>{{ $i }}</td>
                     <td>{{ $alt->kode }}</td>
                     <td>{{ $alt->name }}</td>
-                    <td>{{ $alt->sub_kriteria }}</td>
-
                     <td class="">
                         <a href="{{ route('edit_alternatif', $alt->id) }}" class="btn btn-sm btn-outline-warning">Edit</a>
                         <a href="" class="btn btn-sm btn-outline-danger">Del</a>

@@ -29,4 +29,9 @@ class sub_kriteria extends Model
 	{
 		return $this->belongsTo(Kriteria::class);
 	}
+
+    public function nilai_alternatif()
+	{
+		return $this->belongsTo(nilai_alternatif::class);
+	}
 }

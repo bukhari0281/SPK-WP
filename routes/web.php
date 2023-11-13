@@ -3,6 +3,7 @@
 use App\Http\Controllers\AlternatifController;
 use App\Http\Controllers\KasusController;
 use App\Http\Controllers\KriteriaDanBobotController;
+use App\Http\Controllers\NilaiAlternatifController;
 use App\Http\Controllers\PembobotanController;
 use App\Http\Controllers\SubKriteriaController;
 use Illuminate\Support\Facades\Route;
@@ -63,6 +64,12 @@ Route::prefix('dashboard')->group(function () {
     // Route::post('kriteria/{id}/subkriteria', [SubKriteriaController::class,'tambahSubKriteria'])->name('tambah_sub_kriteria');
     Route::post('subkriteria', [SubKriteriaController::class, 'store'])->name('store_sub_kriteria');
     // ens sub kriteria
+
+    // nilai alternatif
+    Route::get('nilai_alternatif', [NilaiAlternatifController::class,'index'])->name('nilai_alternatif');
+    Route::get('nilai_alternatif/create', [NilaiAlternatifController::class,'create'])->name('create_nilai_alternatif');
+    Route::post('nilai_alternatif', [NilaiAlternatifController::class,'store'])->name('store_nilai_alternatif');
+    // end of nilai alternatif
 });
 
 
