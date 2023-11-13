@@ -17,12 +17,13 @@ class SubKriteriaController extends Controller
         return view("dashboard.sub_kriteria.index", compact("data"));
     }
 
-    public function create($id)
+    public function create()
     {
         // mengambil data kasus
         // $create_sub_kriteria = alternatif::all();
         // Temukan kriteria berdasarkan ID
-        $kriteria = Kriteria::find($id);
+        // $kriteria = Kriteria::find($id);
+        $kriteria = Kriteria::all();
 
         // if (!$kriteria) {
         //     return response()->json('error', 'Kriteria tidak ditemukan.');
@@ -30,7 +31,7 @@ class SubKriteriaController extends Controller
 
         // dd($kriteria);
         // dd($kriteria);
-        return view("dashboard.sub_kriteria.create", compact("kriteria"));
+        return view("dashboard.sub_kriteria.create", compact('kriteria'));
     }
 
     public function store(Request $request)
@@ -57,7 +58,7 @@ class SubKriteriaController extends Controller
             'name'=>$request->name,
             'nilai'=>$request->nilai,
             'keterangan'=>$request->keterangan,
-            'kriteria_id'=>$request->name
+            'kriteria_id'=>$request->kriteria_id,
         ];
         sub_kriteria::create($data);
         return redirect()->route("sub_kriteria")->with('success', 'Berhasil menambahkan data');

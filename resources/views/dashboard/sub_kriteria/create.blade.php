@@ -1,25 +1,20 @@
 @extends('dashboard.layout')
 
 @section('body')
-    <p>
-        @error('kriteria')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-        @enderror
-        Id Kriteria =
-        {{ $kriteria->id }}
-    </p>
     <div class="pb-3 pt-3">
-        <a href="{{ route('kriteria') }}" class="btn btn-secondary"><< Kembali</a>
+        <a href="{{ route('sub_kriteria') }}" class="btn btn-secondary"><< Kembali</a>
     </div>
 
-    <form action="{{ url("dashboard/kriteria/{$kriteria->id}/subkriteria") }}" method="POST">
+    <form action="{{ route('store_sub_kriteria') }}" method="POST">
         @csrf
         <div class="mb-3 col-5">
-          <label for="kode_sub_kriteria" class="form-label">Kode Kriteria</label>
-          <input type="text"
-            class="form-control form-control-sm" name="kode_sub_kriteria" id="kode_sub_kriteria" aria-describedby="helpId" placeholder="{{ $kriteria->kode }}" value="" readonly>
+          <label for="kriteria" class="form-label">Nama Kriteria</label>
+          <select name="kriteria_id" class="form-control @error('kriteria_id') is-invalid @enderror">
+            <option value="">Pilih Kriteria</option>
+            @foreach ($kriteria as $item)
+                <option value="{{ $item->id }}">{{ $item->name() }}</option>
+            @endforeach
+            </select>
         </div>
         <div class="mb-3 col-5">
           <label for="kode_sub_kriteria" class="form-label">Kode Sub Kriteria</label>

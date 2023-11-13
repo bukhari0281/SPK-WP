@@ -1,16 +1,24 @@
 @extends('dashboard.layout')
 
 @section('body')
-    <p class="card-title">Kriteria</p>
-    <div class="pb-3"><a href="{{ route('create_sub_kriteria') }}" class="btn btn-primary text-white"> + Tambah Kriteria dan Bobot</a></div>
+<div class="text-center mb-5">
+
+    <div class="">
+        <h1 class="display-5 fw-bold ">Sub Kriteria</h1>
+    </div>
+    <div class="">
+    <a href="{{ route('create_sub_kriteria') }}" class="btn btn-outline-secondary"> + Tambah Sub Kasus</a>
+</div>
+
+</div>
     <div class="table-responsive">
         <table class="table table-stripped text-center">
             <thead>
                 <tr>
                     <th class="col-1">No</th>
-                    <th class="col-1">Kode Kriteria</th>
-                    <th class="col-2 ">Kode Sub Kriteria</th>
-                    <th class="col-1">Sub Kriteria</th>
+                    <th class="col-1">Kode</th>
+                    <th class="col-2">Kriteria</th>
+                    <th class="col-2">Sub Kriteria</th>
                     <th class="col-1">Nilai</th>
                     <th class="">Keterangan</th>
                     <th class="col-2">Aksi</th>
@@ -21,8 +29,8 @@
                 @foreach ($data as $item)
                 <tr>
                     <td>{{ $i }}</td>
-                    <td>{{ $item->kriteria->kode() }}</td>
                     <td>{{ $item->kode_sub_kriteria }}</td>
+                    <td>{{ $item->kriteria->name() }}</td>
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->nilai }}</td>
                     <td>{{ $item->keterangan }}</td>

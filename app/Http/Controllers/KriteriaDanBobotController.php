@@ -12,8 +12,8 @@ class KriteriaDanBobotController extends Controller
     public function index()
     {
         $data = kriteria::with('Kasus')->get();
-        return json_decode($data, true);
-        // return view("dashboard.kriteria.index")->with('data', $data);
+        // return json_decode($data, true);
+        return view("dashboard.kriteria.index")->with('data', $data);
     }
     public function create()
     {
