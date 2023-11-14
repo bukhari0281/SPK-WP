@@ -17,15 +17,24 @@ class AlternatifController extends Controller
 
     public function detail_alternatif($id)
     {
+
         $detail_alternatif = alternatif::find($id);
-        return view("dashboard.alternatif.detail")->with('detail_alternatif', $detail_alternatif);
+        $alternatif = alternatif::all();
+        return view("dashboard.alternatif.detail", ['alternatif' => $alternatif])->with('detail_alternatif', $detail_alternatif);
     }
 
-    public function create()
+    public function create_alternatif()
     {
         // $alternatif = alternatif::find($id);
         // return view("dashboard.alternatif.create", compact('alternatif'));
         return view("dashboard.alternatif.create");
+    }
+    public function create_sub_kriteria($id)
+    {
+        $alternatif = alternatif::find($id);
+        $sub_kriteria = sub_kriteria::all();
+        // return view("dashboard.alternatif.create", compact('alternatif'));
+        return view("dashboard.alternatif.create_sub_kriteria", compact('alternatif', 'sub_kriteria'));
     }
     public function store(Request $request)
     {
@@ -57,5 +66,22 @@ class AlternatifController extends Controller
             'alternatif', 'sub_kriteria'
         ));
     }
+
+    public function store_sub_kriteria($id, Request $request)
+    {
+        $alternatif = alternatif::find($id);
+
+        if (!$alternatif) {
+            return redirect()->route('alternatif')->with('error', 'Alternatif tidak ditemukan.');
+        }
+
+        // Attach pivot data
+        $alternatif->sub_kriteria()->save()->attach($request->sub_kriteria);
+
+        // return redirect()->route('detail_alternatif')->with('success', 'Data berhasil ditambahkan ke alternatif dengan ID ' . $id);
+        return response()->json(['success']);
+    }
+
+
 }
 

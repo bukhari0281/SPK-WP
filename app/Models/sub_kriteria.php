@@ -21,17 +21,13 @@ class sub_kriteria extends Model
         return $this->name;
     }
 
-    public function alternatif()
-	{
-		return $this->belongsTo(alternatif::class);
-	}
     public function kriteria()
 	{
 		return $this->belongsTo(Kriteria::class);
 	}
 
-    public function nilai_alternatif()
+    public function alternatif()
 	{
-		return $this->hasMany(nilai_alternatif::class);
+		return $this->belongsToMany(alternatif::class, 'nilai_alternatif');
 	}
 }

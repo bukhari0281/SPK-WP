@@ -48,7 +48,9 @@ Route::prefix('dashboard')->group(function () {
     // alternatif
     Route::get('alternatif', [AlternatifController::class,'index'])->name('alternatif');
     Route::get('alternatif/{id}', [AlternatifController::class,'detail_alternatif'])->name('detail_alternatif');
-    Route::get('alternatif/create', [AlternatifController::class,'create'])->name('create_alternatif');
+    Route::post('alternatif/{id}/store', [AlternatifController::class,'store_sub_kriteria'])->name('store_sub_kriteria');
+    Route::get('alternatif/{id}/create', [AlternatifController::class,'create_sub_kriteria'])->name('create_sub_kriteria');
+    Route::get('alternatif/create', [AlternatifController::class,'create_alternatif'])->name('create_alternatif');
     Route::post('alternatif', [AlternatifController::class,'store'])->name('store_alternatif');
     Route::get('alternatif/{id}/edit', [KriteriaDanBobotController::class,'edit'])->name('edit_alternatif');
     // end of alternatif
@@ -59,7 +61,7 @@ Route::prefix('dashboard')->group(function () {
 
     // sub kriteria
     Route::get('subkriteria', [SubKriteriaController::class, 'index'])->name('sub_kriteria');
-    Route::get('subkriteria/create', [SubKriteriaController::class, 'create'])->name('create_sub_kriteria');
+    Route::get('subkriteria/create', [SubKriteriaController::class, 'create'])->name('create_sk');
     // Route::get('kriteria/{id}/subkriteria/create', [SubKriteriaController::class,'create'])->name('create_sub_kriteria');
     // Route::get('kriteria/{id}/subkriteria/create', [SubKriteriaController::class,'create'])->name('create_sub_kriteria');
     // Route::post('kriteria/{id}/subkriteria', [SubKriteriaController::class,'tambahSubKriteria'])->name('tambah_sub_kriteria');

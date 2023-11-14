@@ -2,7 +2,7 @@
 
 @section('body')
 <div class="pb-3">
-    <a href="{{ route('alternatif') }}" class="btn btn-outline-primary"><< Kembali</a>
+    <a href="{{ route('detail_alternatif', $detail_alternatif->id) }}" class="btn btn-outline-primary"><< Kembali</a>
 </div>
 <br>
 <div class="row">
@@ -48,14 +48,17 @@
                         </tr>
                         </thead>
                         <tbody  class="text-center">
+                            @foreach ($alternatif as $item)
+
                             <tr>
-                                <td>-</td>
-                                <td>-</td>
+                                <td>{{ $item->sub_kriteria->name }}</td>
+                                <td>{{ $item->sub_kriteria->name }}</td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                             <hr>
-                            <a href="{{ route('pembobotan', $detail_alternatif->id) }}" class="btn btn-primary text-white mt-1">+ Sub Kriteria</a>
+                            <a href="{{ route('create_sub_kriteria', $detail_alternatif->id) }}" class="btn btn-primary text-white mt-1">+ Sub Kriteria</a>
                 </div>
         </div>
     </div>

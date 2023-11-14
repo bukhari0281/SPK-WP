@@ -7,7 +7,7 @@
         <h1 class="display-5 fw-bold ">Sub Kriteria</h1>
     </div>
     <div class="">
-    <a href="{{ route('create_sub_kriteria') }}" class="btn btn-outline-secondary"> + Tambah Sub Kasus</a>
+    <a href="{{ route('create_sk') }}" class="btn btn-outline-secondary"> + Tambah Sub Kasus</a>
 </div>
 
 </div>
