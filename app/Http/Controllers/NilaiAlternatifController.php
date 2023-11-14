@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\alternatif;
 use App\Models\nilai_alternatif;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -17,9 +18,9 @@ class NilaiAlternatifController extends Controller
         return view('dashboard.nilai_alternatif.index', compact('alternatif'));
     }
 
-    public function create()
+    public function create($id)
     {
-        $alternatif = nilai_alternatif::all();
+        $alternatif = alternatif::all($id);
         // $alternatif = nilai_alternatif::with('alternatif')->get();
         return view('dashboard.nilai_alternatif.index', compact('alternatif'));
 

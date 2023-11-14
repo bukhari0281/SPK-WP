@@ -7,7 +7,7 @@
 
     <form action="{{ route('store_alternatif') }}" method="POST">
         @csrf
-        <input type="hidden" name="alternatif" value="{{ $alternatif->id }}">
+        {{-- <input type="hidden" name="alternatif" value="{{ $alternatif->id }}"> --}}
         <div class="mb-3 col-5">
           <label for="kode" class="form-label">Kode Alternatif</label>
           <input type="text"

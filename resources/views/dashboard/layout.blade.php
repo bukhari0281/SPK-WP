@@ -76,5 +76,6 @@
         &copy; 2021
       </footer>
     </div>
-  </main>
+
+</main>
 </html>

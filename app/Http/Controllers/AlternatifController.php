@@ -15,10 +15,11 @@ class AlternatifController extends Controller
         return view('dashboard.alternatif.index')->with('data_alternatif', $data_alternatif);
     }
 
-    public function create($id)
+    public function create()
     {
-        $alternatif = alternatif::find($id);
-        return view("dashboard.alternatif.create", compact('alternatif'));
+        // $alternatif = alternatif::find($id);
+        // return view("dashboard.alternatif.create", compact('alternatif'));
+        return view("dashboard.alternatif.create");
     }
     public function store(Request $request)
     {
@@ -40,6 +41,15 @@ class AlternatifController extends Controller
         ];
         alternatif::create($data);
         return redirect()->route("kasus")->with('success', 'Berhasil menambahkan data');
+    }
+
+    public function edit($id){
+        $alternatif = alternatif::find($id);
+        $sub_kriteria = sub_kriteria::where('alternatif_id', $id)->get();
+
+        return view('pegawai.edit', compact(
+            'alternatif', 'sub_kriteria'
+        ));
     }
 }
 
