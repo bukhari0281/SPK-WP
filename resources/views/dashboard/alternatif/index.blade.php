@@ -27,11 +27,13 @@
                 <tr>
                     <td>{{ $i }}</td>
                     <td>{{ $alt->kode }}</td>
-                    <td>{{ $alt->name }}</td>
+                    <td href="{{ route('detail_alternatif', $alt->id) }}" class="btn btn-sm btn-outline-primary">{{ $alt->name }}</td>
                     <td class="">
                         <a href="{{ route('edit_alternatif', $alt->id) }}" class="btn btn-sm btn-outline-warning">Edit</a>
                         <a href="{{ route('create_alternatif', $alt->id) }}" class="btn btn-sm btn-outline-primary">+</a>
                         <a href="" class="btn btn-sm btn-outline-danger">Del</a>
+                        <a href="{{ route('detail_alternatif', $alt->id) }}" class="btn btn-sm btn-outline-primary">Detail alternatif</a>
+
                     </td>
                 </tr>
                 <?php $i++; ?>

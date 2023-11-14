@@ -24,6 +24,8 @@ class SubKriteriaController extends Controller
         // Temukan kriteria berdasarkan ID
         // $kriteria = Kriteria::find($id);
         $kriteria = Kriteria::all();
+        // $alternatif = alternatif::find($id);
+        // $sub_kriteria = sub_kriteria::where('alternatif_id', $id)->get();
 
         // if (!$kriteria) {
         //     return response()->json('error', 'Kriteria tidak ditemukan.');

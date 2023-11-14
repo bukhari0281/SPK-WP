@@ -15,6 +15,12 @@ class AlternatifController extends Controller
         return view('dashboard.alternatif.index')->with('data_alternatif', $data_alternatif);
     }
 
+    public function detail_alternatif($id)
+    {
+        $detail_alternatif = alternatif::find($id);
+        return view("dashboard.alternatif.detail")->with('detail_alternatif', $detail_alternatif);
+    }
+
     public function create()
     {
         // $alternatif = alternatif::find($id);
@@ -40,7 +46,7 @@ class AlternatifController extends Controller
             'name'=>$request->name,
         ];
         alternatif::create($data);
-        return redirect()->route("kasus")->with('success', 'Berhasil menambahkan data');
+        return redirect()->route("alternatif")->with('success', 'Berhasil menambahkan data');
     }
 
     public function edit($id){
