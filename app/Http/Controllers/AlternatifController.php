@@ -20,7 +20,7 @@ class AlternatifController extends Controller
 
         $detail_alternatif = alternatif::find($id);
         $alternatif = alternatif::all();
-        return view("dashboard.alternatif.detail", ['alternatif' => $alternatif])->with('detail_alternatif', $detail_alternatif);
+        return view("dashboard.alternatif.detail", ['alternatif' => $alternatif], compact('detail_alternatif', 'alternatif')) ;
     }
 
     public function create_alternatif()
@@ -76,10 +76,10 @@ class AlternatifController extends Controller
         }
 
         // Attach pivot data
-        $alternatif->sub_kriteria()->save()->attach($request->sub_kriteria);
+        $alternatif->sub_kriteria()->attach($request->input('sub_kriteria_id'));
 
-        // return redirect()->route('detail_alternatif')->with('success', 'Data berhasil ditambahkan ke alternatif dengan ID ' . $id);
-        return response()->json(['success']);
+        return redirect()->route('detail_alternatif', $alternatif)->with('success', 'Data berhasil ditambahkan ke alternatif dengan ID ', );
+        // return response()->json(['success']);
     }
 
 

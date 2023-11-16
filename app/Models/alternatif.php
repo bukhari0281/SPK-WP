@@ -24,6 +24,6 @@ class alternatif extends Model
 	// relasi ke tabel nilai kriteria
     public function sub_kriteria()
 	{
-		return $this->belongsToMany(sub_kriteria::class, 'nilai_alternatif');
+		return $this->belongsToMany(sub_kriteria::class, 'nilai_alternatif', 'sub_kriteria_id');
 	}
 }

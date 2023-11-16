@@ -28,6 +28,6 @@ class sub_kriteria extends Model
 
     public function alternatif()
 	{
-		return $this->belongsToMany(alternatif::class, 'nilai_alternatif');
+		return $this->belongsToMany(alternatif::class, 'nilai_alternatif', 'alternatif_id');
 	}
 }

@@ -16,10 +16,10 @@
                     <option value="{{ $sub_kriteria->id }}">{{ $sub_kriteria->name() }}</option>
                 @endforeach
             </select>
-            {{-- <select name="kriteria_id[]" class="form-control @error('kriteria_id') is-invalid @enderror">
+            {{-- <select name="sub_kriteria[]" class="form-control @error('sub_kriteria') is-invalid @enderror">
                 <option value="">Pilih Kriteria</option>
                 @foreach ($sub_kriteria as $item)
-                    <option value="{{ $item->id }}">{{ $item->name() }}</option>
+                    <option value="{{ $item->sub_kriteria }}">{{ $item->name() }}</option>
                 @endforeach
                 </select> --}}
         </div>

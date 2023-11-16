@@ -43,13 +43,26 @@
                         </tr>
                         </thead>
                         <tbody  class="text-center">
-                            {{-- @foreach ($alternatif as $item)
-
+                            @foreach ($alternatif as $item)
                             <tr>
-                                <td>{{ $item->sub_kriteria->name }}</td>
-                                <td>{{ $item->sub_kriteria->name }}</td>
+                                <td>
+                                    @if ($item->sub_kriteria)
+                                        {{ $item->sub_kriteria->name }}
+                                    @else
+                                        <!-- Tampilkan pesan atau nilai default jika sub_kriteria tidak ditemukan -->
+                                        Not available
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($item->sub_kriteria)
+                                        {{ $item->sub_kriteria->nilai }}
+                                    @else
+                                        <!-- Tampilkan pesan atau nilai default jika sub_kriteria tidak ditemukan -->
+                                        Not available
+                                    @endif
+                                </td>
                             </tr>
-                            @endforeach --}}
+                            @endforeach
                         </tbody>
                     </table>
                             <hr>
