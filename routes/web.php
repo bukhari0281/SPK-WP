@@ -65,7 +65,7 @@ Route::prefix('dashboard')->group(function () {
     // Route::get('kriteria/{id}/subkriteria/create', [SubKriteriaController::class,'create'])->name('create_sub_kriteria');
     // Route::get('kriteria/{id}/subkriteria/create', [SubKriteriaController::class,'create'])->name('create_sub_kriteria');
     // Route::post('kriteria/{id}/subkriteria', [SubKriteriaController::class,'tambahSubKriteria'])->name('tambah_sub_kriteria');
-    Route::post('subkriteria', [SubKriteriaController::class, 'store'])->name('store_sub_kriteria');
+    // Route::post('subkriteria', [SubKriteriaController::class, 'store'])->name('store_sub_kriteria');
     // ens sub kriteria
 
     // nilai alternatif

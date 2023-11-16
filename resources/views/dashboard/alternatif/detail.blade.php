@@ -26,11 +26,6 @@
                             </tr>
                         </tbody>
                     </table>
-                    <ul >
-                        <li>1</li>
-                        <li>1</li>
-                        <li>1</li>
-                    </ul>
                 </div>
         </div>
     </div>
@@ -48,13 +43,13 @@
                         </tr>
                         </thead>
                         <tbody  class="text-center">
-                            @foreach ($alternatif as $item)
+                            {{-- @foreach ($alternatif as $item)
 
                             <tr>
                                 <td>{{ $item->sub_kriteria->name }}</td>
                                 <td>{{ $item->sub_kriteria->name }}</td>
                             </tr>
-                            @endforeach
+                            @endforeach --}}
                         </tbody>
                     </table>
                             <hr>
