@@ -6,6 +6,8 @@ use App\Http\Controllers\KriteriaDanBobotController;
 use App\Http\Controllers\NilaiAlternatifController;
 use App\Http\Controllers\PembobotanController;
 use App\Http\Controllers\SubKriteriaController;
+use App\Models\alternatif;
+use App\Models\sub_kriteria;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -73,6 +75,39 @@ Route::prefix('dashboard')->group(function () {
     Route::get('nilai_alternatif/create/{id}', [NilaiAlternatifController::class,'create'])->name('create_nilai_alternatif');
     Route::post('nilai_alternatif', [NilaiAlternatifController::class,'store'])->name('store_nilai_alternatif');
     // end of nilai alternatif
+
+
 });
+
+Route::get('/alternatif', function () {
+    $alternatif = alternatif::all();
+    echo $alternatif;
+});
+
+Route::get('/sub_kriteria', function () {
+    $sub_kriteria = sub_kriteria::find(2);
+    echo $sub_kriteria->name;
+});
+
+Route::get('/alternatif_sub_kriteria', function () {
+    $alternatif = alternatif::find(1);
+    $sub_kriteria = ['4', '3'];
+    $alternatif->sub_kriteria()->attach($sub_kriteria);
+    echo 'success';
+});
+
+
+Route::get('/hapus', function () {
+    $alternatif = alternatif::find(1);
+    $sub_kriteria = ['4'];
+    $alternatif->sub_kriteria()->detach($sub_kriteria);
+    echo 'success hapus data';
+});
+
+Route::get('/show', function () {
+    $alternatif = alternatif::with('sub_kriteria')->find(1);
+    echo $alternatif;
+});
+
 
 
