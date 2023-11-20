@@ -43,18 +43,19 @@
                         </tr>
                         </thead>
                         <tbody  class="text-center">
-                            @foreach ($detail_alternatif as $item)
-                                @if ($item->sub_kriteria)
-                                    <tr>
+                            {{-- @if ($item->sub_kriteria) --}}
+                            @foreach ($sub_kriteria as $item)
+                            <tr>
                                         <td>
-                                            {{ $item->sub_kriteria->name() }}
+                                            {{ $item->name }}
                                         </td>
                                         <td>
-                                            {{ $item->sub_kriteria->nilai() }}
+                                            {{ $item->nilai }}
                                         </td>
                                     </tr>
-                                @endif
-                            @endforeach
+                                {{-- @endif --}}
+                                @endforeach
+
                         </tbody>
                     </table>
                             <hr>

@@ -19,10 +19,11 @@ class AlternatifController extends Controller
     {
 
         $detail_alternatif = alternatif::with('sub_kriteria')->find($id);
-        $sub_kriteria = sub_kriteria::with('alternatif')->find($id);
+        $sub_kriteria = $detail_alternatif->sub_kriteria;
+        // $sub_kriteria = sub_kriteria::with('alternatif')->find($id);
 
         // dd($sub_kriteria);
-        return view("dashboard.alternatif.detail", ['alternatif' => $detail_alternatif], compact('detail_alternatif', 'sub_kriteria')) ;
+        return view("dashboard.alternatif.detail", compact('detail_alternatif', 'sub_kriteria')) ;
     }
 
     public function create_alternatif()
@@ -34,7 +35,7 @@ class AlternatifController extends Controller
     public function create_sub_kriteria($id)
     {
         $alternatif = alternatif::find($id);
-        $sub_kriteria = sub_kriteria::where('alternatif_id', $id)->get();
+        $sub_kriteria = sub_kriteria::all();
         // return view("dashboard.alternatif.create", compact('alternatif'));
         return view("dashboard.alternatif.create_sub_kriteria", compact('alternatif', 'sub_kriteria'));
     }
