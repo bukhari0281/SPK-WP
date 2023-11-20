@@ -5,10 +5,10 @@
     <div class="">
             <h1 class="display-5 fw-bold ">Nilai Alternatif</h1>
     </div>
-    <div class="">
+    {{-- <div class="">
         <a href="{{ route('create_nilai_alternatif') }}" class="btn btn-outline-secondary"> + Nilai Alternatif</a>
 
-    </div>
+    </div> --}}
 
 </div>
     <div class="table-responsive">
@@ -17,9 +17,8 @@
                 <tr>
                     <th class="col-1">No</th>
                     <th class="col-2">Alternatif</th>
-                    @foreach ($alternatif as $a)
-                    <th class="col-1">{{ $a->alternatif->kode() }}</th>
-                    @endforeach
+                    <th class="col-1">Sub_Kriteria</th>
+                    <th class="col-1">Nilai Alternatif</th>
                     <th class="col-2 text-center">Aksi</th>
                 </tr>
             </thead>
@@ -28,7 +27,8 @@
                 @foreach ($alternatif as $a)
                 <tr>
                     <td>{{ $i }}</td>
-                    <td>{{ $a->alternatif->name() }}</td>
+                    <td>{{ $a->name }}</td>
+                    <td>{{ $a->sub_kriteria->name() }}</td>
                     @foreach ($alternatif as $sk)
                     <td>{{ $sk->sub_kriteria->name() }}</td>
                     @endforeach

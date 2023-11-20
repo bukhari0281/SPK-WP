@@ -12,7 +12,8 @@ class NilaiAlternatifController extends Controller
     public function index()
     {
         // $alternatif = nilai_alternatif::all();
-        $alternatif = nilai_alternatif::with('alternatif')->get();
+        $alternatif = alternatif::with('sub_kriteria')->get();
+        // $sub_kriteria = $alternatif->sub_kriteria;
         // $sub_kriteria = nilai_alternatif::with('sub_kriteria')->get();
         // return json_decode($data, true);
         return view('dashboard.nilai_alternatif.index', compact('alternatif'));
