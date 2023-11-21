@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\sub_kriteria;
 use App\Models\alternatif;
 use App\Models\nilai_alternatif;
 use Illuminate\Http\Request;
@@ -11,12 +12,12 @@ class NilaiAlternatifController extends Controller
 {
     public function index()
     {
-        // $alternatif = nilai_alternatif::all();
+
         $alternatif = alternatif::with('sub_kriteria')->get();
-        // $sub_kriteria = $alternatif->sub_kriteria;
-        // $sub_kriteria = nilai_alternatif::with('sub_kriteria')->get();
-        // return json_decode($data, true);
-        return view('dashboard.nilai_alternatif.index', compact('alternatif'));
+        $sub_kriteria = sub_kriteria::orderby('kode');
+
+        // dd($sub_kriteria);
+        return view('dashboard.nilai_alternatif.index', ['alternatif' => $alternatif]);
     }
 
     public function create($id)

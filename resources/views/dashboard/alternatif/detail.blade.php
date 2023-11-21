@@ -2,7 +2,7 @@
 
 @section('body')
 <div class="pb-3">
-    <a href="{{ route('detail_alternatif', $detail_alternatif->id) }}" class="btn btn-outline-primary"><< Kembali</a>
+    <a href="{{ route('alternatif') }}" class="btn btn-outline-primary"><< Kembali</a>
 </div>
 <br>
 <div class="row">

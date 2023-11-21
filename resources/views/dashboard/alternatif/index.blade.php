@@ -11,14 +11,14 @@
     </div>
 
 </div>
-    <div class="table-responsive">
-        <table class="table table-stripped">
+    <div class="table-responsive ">
+        <table class="table table-stripped bg bg-gradient">
             <thead>
                 <tr>
                     <th class="col-1">No</th>
                     <th class="col-2">Kode</th>
                     <th class="">Alternatif</th>
-                    <th class="col-2">Aksi</th>
+                    <th class="col-3">Aksi</th>
                 </tr>
             </thead>
             <tbody>

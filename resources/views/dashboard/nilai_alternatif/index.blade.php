@@ -17,30 +17,35 @@
                 <tr>
                     <th class="col-1">No</th>
                     <th class="col-2">Alternatif</th>
-                    <th class="col-1">Sub_Kriteria</th>
-                    <th class="col-1">Nilai Alternatif</th>
+                    {{-- @foreach ($sub_kriteria as $item)
+
+                    <th class="col-1">{{ $item->nilai }}</th>
+                    @endforeach --}}
+                    <th class="col-2 text-center">Hasil</th>
                     <th class="col-2 text-center">Aksi</th>
                 </tr>
             </thead>
             <tbody>
-                <?php $i=1; ?>
-                @foreach ($alternatif as $a)
+                @foreach ($alternatif as $item)
                 <tr>
-                    <td>{{ $i }}</td>
-                    <td>{{ $a->name }}</td>
-                    <td>{{ $a->sub_kriteria->name() }}</td>
-                    @foreach ($alternatif as $sk)
-                    <td>{{ $sk->sub_kriteria->name() }}</td>
-                    @endforeach
+                    <td>1</td>
+
+                    <td>{{ $item->name }}</td>
+                    <td class="text-center">
+                        <ul class="text-center">
+                            @foreach ($item->sub_kriteria as $item)
+                            <li >
+                                {{ $item->name }} = {{ $item->nilai }}
+                            </li>
+                            @endforeach
+                        </ul>
+                    </td>
                     <td class="text-center">
                         {{-- <a href="{{ route('edit_nilai_alternatif', $alternatif->id) }}" class="btn btn-sm btn-warning text-white">Edit</a> --}}
                         <a href="" class="btn btn-sm btn-danger text-white">Del</a>
                     </td>
                 </tr>
-                <?php $i++; ?>
                 @endforeach
-
-
             </tbody>
         </table>
     </div>
