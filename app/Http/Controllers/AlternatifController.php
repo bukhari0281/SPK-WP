@@ -17,8 +17,8 @@ class AlternatifController extends Controller
 
     public function detail_alternatif($id)
     {
-
-        $detail_alternatif = alternatif::with('sub_kriteria')->find($id);
+        // $alternatif = alternatif::find($id);
+        $detail_alternatif = alternatif::find($id);
         $sub_kriteria = $detail_alternatif->sub_kriteria;
         // $sub_kriteria = sub_kriteria::with('alternatif')->find($id);
 
@@ -82,8 +82,8 @@ class AlternatifController extends Controller
         $alternatif->sub_kriteria()->attach($request->input('sub_kriteria_id'));
 
         // dd($request->all());
-        // return redirect()->route('detail_alternatif', $alternatif)->with('success', 'Data berhasil ditambahkan ke alternatif dengan ID ', );
-        return response()->json(['success', 'Data berhasil ditambahkan ke alternatif dengan ID ']);
+        return redirect('dashboard/alternatif/'.$id)->with('success', 'Data berhasil ditambahkan ke alternatif dengan ID ', );
+        // return response()->json(['success', 'Data berhasil ditambahkan ke alternatif dengan ID ']);
     }
 
 
