@@ -87,6 +87,14 @@ class AlternatifController extends Controller
         // return response()->json(['success', 'Data berhasil ditambahkan ke alternatif dengan ID ']);
     }
 
+    public function destroy_sub_kriteria($id)
+    {
+        $alternatif = alternatif::find($id);
+        $sub_kriteria = sub_kriteria::where('alternatif_id', $id)->get();
 
+        return view('pegawai.edit', compact(
+            'alternatif', 'sub_kriteria'
+        ));
+    }
 }
 
