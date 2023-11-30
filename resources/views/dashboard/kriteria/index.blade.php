@@ -36,7 +36,7 @@
                     <td class="text-center">
                         [ {{ $item->get_subkriteria->count() }}     ] Data
                         {{-- <a href="{{ route('create_sub_kriteria', $item->id) }}" class="btn btn-sm btn-primary text-white">+</a> --}}
-                        <a href="{{ route('create_sub_kriteria', $item->id) }}" class="btn btn-primary btn-modal" data-bs-toggle="modal" data-bs-target="#exampleModal" >+</a>
+                        <a href="{{ route('create_sub_kriteria', $item->id) }}" class="btn btn-sm btn-primary btn-modal" data-bs-toggle="modal" data-bs-target="#exampleModal" >+</a>
 
                     </td>
                     <td class="text-center">
@@ -63,9 +63,14 @@
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    {{-- <p>{{ $data->name }}</p> --}}
+                    {{-- <p>{{ $data->id }}</p> --}}
                 {{-- <input type="hidden" name="alternatif" value="{{ $data->id }}"> --}}
-                <input type="text" id="kriteria_id" name="kriteria_id" >
+                <input type="hidden" id="kriteria_id" name="kriteria_id">
+                <select name="kriteria_id" id="kriteria" class="form-control">
+                    @foreach($data as $kriteria)
+                        <option value="{{ $kriteria->id }}">{{ $kriteria->name() }}</option>
+                    @endforeach
+                </select>
                 <div class="">
                     <label for="kode_sub_kriteria" class="form-label">Kode Sub Kriteria</label>
                     <input type="text"

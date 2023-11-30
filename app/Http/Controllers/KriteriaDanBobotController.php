@@ -79,7 +79,7 @@ class KriteriaDanBobotController extends Controller
             'kriteria_id'=>$request->kriteria_id,
         ];
         sub_kriteria::create($data);
-        return redirect()->route("kriteria")->with('success', 'Berhasil menambahkan data');
+        return redirect()->route('kriteria')->with('success', 'Berhasil menambahkan data');
     }
 
     public function edit(int $id)

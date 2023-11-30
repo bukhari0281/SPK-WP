@@ -84,9 +84,10 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+                <p>{{ $detail_alternatif->id }}</p>
             {{-- <input type="hidden" name="alternatif" value="{{ $alternatif->id }}"> --}}
             <div class="form-group">
-                <input type="text" id="alternatif_id" name="alternatif_id" >
+                <input type="hidden" id="alternatif_id" name="alternatif_id" >
                 <label for="sub_kriteria">Pilih Sub Kriteria:</label>
                 <select name="sub_kriteria_id" id="sub_kriteria" class="form-control">
                     @foreach($s_kriteria as $sub_kriteria)
