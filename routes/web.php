@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AlternatifController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KasusController;
 use App\Http\Controllers\KriteriaDanBobotController;
 use App\Http\Controllers\NilaiAlternatifController;
@@ -23,9 +24,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get("/", function () {
-    return view("dashboard.layout");
-})->name('home');
+Route::get("/", [DashboardController::class,'index'])->name('home');
 
 Route::prefix('dashboard')->group(function () {
     Route::get('/', function () {
