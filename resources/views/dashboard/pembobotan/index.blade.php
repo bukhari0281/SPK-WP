@@ -20,18 +20,7 @@
                         @foreach ($bobot_kriterias as $b)
                             <tr>
                                 <td>{{ $b->id }}</td>
-                                <td>
-                                    <ul>
-                                        @foreach ($b->bobot_kriteria as $bobot)
-                                            <li>
-                                                <p>
-                                                    {{ $bobot->bobot }}
-                                                </p>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                </td>
-                                {{-- <td>{{ $bobot_kriteria->bobots[1]['bobot'] }}</td> --}}
+                                <td>{{ $b->bobot }}</td>
                             </tr>
                         @endforeach
                     </tbody>

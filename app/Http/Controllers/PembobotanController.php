@@ -19,7 +19,7 @@ class PembobotanController extends Controller
         return view('dashboard.pembobotan.index', compact('kriterias','kasus','users'));
     }
     public function index_2() {
-        $bobot_kriterias = Kasus::with('bobot_kriteria')->get();
+        $bobot_kriterias = bobot_kriteria::get();
         return view('dashboard.pembobotan.index', compact('bobot_kriterias'));
     }
 
