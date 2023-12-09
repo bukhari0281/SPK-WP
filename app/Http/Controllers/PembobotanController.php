@@ -19,8 +19,6 @@ class PembobotanController extends Controller
         return view('dashboard.pembobotan.index', compact('kriterias','kasus','users'));
     }
 
-
-
     public function pembobotan(string $id)
     {
         try {
@@ -46,11 +44,9 @@ class PembobotanController extends Controller
 
         // Simpan data hasil hitungan ke database
         $data = new bobot_kriteria();
-        $data->id_kasus = $id;
+        $data->kasus = $id;
         $data->bobots = json_encode($results);
         $data->save();
-
-
 
         // Tampilkan hasil pembagian
             return view('dashboard.pembobotan.index', compact('bobots', 'kriterias'));
