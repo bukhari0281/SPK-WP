@@ -1,8 +1,3 @@
-# PHP
-# Test and package your PHP project.
-# Add steps that run tests, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/php
-
 trigger:
 - main
 
@@ -22,7 +17,7 @@ stages:
 - stage: Build
   displayName: Build stage
   variables:
-    phpVersion: '7.4'
+    phpVersion: '8.1'
   jobs:
   - job: BuildJob
     pool:
