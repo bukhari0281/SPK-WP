@@ -3,26 +3,37 @@
 @section('body')
     <p class="card-title">Hasil Pembobotan</p>
     <div class="pb-3"><a href="{{ route('kasus') }}" class="btn btn-primary text-white">< Kembali</a></div>
-    <div class="card" style="width: 60rem;">
+    <div class="card">
         <div class="card-header">
             <h3 class="p p-2 pb-1 text-center">Data Bobot</h3>
         </div>
             <div class="card-body ">
 
-                <table class="table table-borderless">
-                    <thead  class="text-center">
-                    <tr>
-                        @foreach ($kriterias->get_kriteria as $k)
-                        <th scope="col">{{ $k->kode }} = bobot ({{ $k->bobot }})</th>
-                        @endforeach
-                    </tr>
-                    </thead>
-                    <tbody  class="text-center">
+                <table>
+                    <thead>
                         <tr>
-                            @foreach ($bobots as $d)
-                            <td>= {{ $d }}</td>
-                            @endforeach
+                            <th class="col-2">ID</th>
+                            <th>Bobot Kriteria 1</th>
                         </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($bobot_kriterias as $b)
+                            <tr>
+                                <td>{{ $b->id }}</td>
+                                <td>
+                                    <ul>
+                                        @foreach ($b->bobot_kriteria as $bobot)
+                                            <li>
+                                                <p>
+                                                    {{ $bobot->bobot }}
+                                                </p>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </td>
+                                {{-- <td>{{ $bobot_kriteria->bobots[1]['bobot'] }}</td> --}}
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

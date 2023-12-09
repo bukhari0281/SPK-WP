@@ -11,6 +11,10 @@ class bobot_kriteria extends Model
     protected $table = 'bobot_kriterias';
     protected $fillable = ['bobot','kasus_id'];
 
+    public function bobot()
+    {
+        return $this->bobot;
+    }
 
     public function kasus()
     {

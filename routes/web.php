@@ -59,6 +59,7 @@ Route::prefix('dashboard')->group(function () {
 
     // pembobotan
     Route::get('pembobotan/{id}', [PembobotanController::class,'pembobotan'])->name('pembobotan');
+    Route::get('kasus/pembobotan/{id}', [PembobotanController::class,'index_2'])->name('pembobotan.lihat');
     // end of pembobotan
 
     // sub kriteria

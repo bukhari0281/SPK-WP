@@ -51,7 +51,7 @@
 
                         </table>
                                 <hr>
-                                <a href="{{ route('pembobotan', $detail_kasus->id) }}" class="btn btn-primary text-white mt-1">Normalisasi Pembobotan</a>
+                                <a href="{{ route('pembobotan.lihat', $detail_kasus->id) }}" class="btn btn-primary text-white mt-1">Normalisasi Pembobotan</a>
                     </div>
             </div>
         </div>

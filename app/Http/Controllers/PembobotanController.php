@@ -12,11 +12,15 @@ use PhpParser\Node\Stmt\TryCatch;
 class PembobotanController extends Controller
 {
     public function index() {
-        $kriterias =Kriteria::with('kasus')->orderBy('kode')->get();
-        $kasus =Kasus::find(1)->get();
-        $users = Kasus::with('kriteria')->get();
+        $kriterias = Kriteria::with('kasus')->orderBy('kode')->get();
+        $kasus = Kasus::find(1)->get();
+        $users = Kasus::with('bobot_kriteria')->get();
 
         return view('dashboard.pembobotan.index', compact('kriterias','kasus','users'));
+    }
+    public function index_2() {
+        $bobot_kriterias = Kasus::with('bobot_kriteria')->get();
+        return view('dashboard.pembobotan.index', compact('bobot_kriterias'));
     }
 
     public function pembobotan(string $id)
@@ -44,8 +48,8 @@ class PembobotanController extends Controller
 
         // Simpan data hasil hitungan ke database
         $data = new bobot_kriteria();
-        $data->kasus = $id;
-        $data->bobots = json_encode($results);
+        $data->kasus_id = $id;
+        $data->bobot = json_encode($results);
         $data->save();
 
         // Tampilkan hasil pembagian
