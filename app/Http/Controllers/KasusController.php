@@ -24,7 +24,8 @@ class KasusController extends Controller
     public function detail_kasus($id)
     {
         $detail_kasus = Kasus::find($id);
-        return view("dashboard.kasus.detail")->with('detail_kasus', $detail_kasus);
+        $kriteria = $detail_kasus->get_kriteria;
+        return view("dashboard.kasus.detail", compact('detail_kasus', 'kriteria'));
     }
 
     public function store(Request $request)
