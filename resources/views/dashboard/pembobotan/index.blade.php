@@ -11,21 +11,44 @@
                 <table>
                     <thead>
                         <tr>
-                            <th class="col-2">ID</th>
-                            <th>Bobot Kriteria 1</th>
+                            <th class="col-2">No</th>
+                            <th class="col-2">Kode Kasus</th>
+                            <th class="text-center">Bobot Kasus</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    {{-- <tbody>
                         @foreach ($kasus->bobot_kriteria as $k)
                             <tr>
                                 <td>{{ $k->id }}</td>
-                                @foreach ($k as $item)
-                                    <td>{{ $item }}</td>
-                                @endforeach
+                                <td>
+                                    @foreach ($k as $item)
+                                        {{ $item }}
+                                    @endforeach
+                                </td>
                             </tr>
                         @endforeach
+                    </tbody> --}}
+                    <tbody  >
+                        <?php $i=1; ?>
+                        @forelse ($kasus->bobot_kriteria as $item)
+                        <tr>
+                            {{-- <td>{{ $i }}</td> --}}
+                            <td >{{ $i++ }}</td>
+                            <td class="text-center">{{ $kasus->kode }}</td>
+                            <td class="text-center">
+                                {{ $item->bobot }}
+                                        @empty
+                                <p>
+                                    Tidak ada data
+                                </p>
+                                @endforelse
+                            </td>
+                        </tr>
+                                <?php $i++; ?>
+
                     </tbody>
                 </table>
             </div>
     </div>
+
 @endsection

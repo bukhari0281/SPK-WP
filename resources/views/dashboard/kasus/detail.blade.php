@@ -85,8 +85,6 @@
                                         </p>
                                         @endforelse
                                     </td>
-
-
                                 </tr>
                                         <?php $i++; ?>
 
