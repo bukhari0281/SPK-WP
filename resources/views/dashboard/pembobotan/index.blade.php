@@ -32,20 +32,16 @@
                         <?php $i=1; ?>
                         @forelse ($kasus->bobot_kriteria as $item)
                         <tr>
-                            {{-- <td>{{ $i }}</td> --}}
                             <td >{{ $i++ }}</td>
                             <td class="text-center">{{ $kasus->kode }}</td>
-                            <td class="text-center">
-                                {{ $item->bobot }}
+                            <td class="text-center">{{ $item->bobot }}</td>
                                         @empty
-                                <p>
-                                    Tidak ada data
-                                </p>
-                                @endforelse
-                            </td>
                         </tr>
-                                <?php $i++; ?>
-
+                        <p>
+                            Tidak ada data
+                        </p>
+                        @endforelse
+                        <?php $i++; ?>
                     </tbody>
                 </table>
             </div>
