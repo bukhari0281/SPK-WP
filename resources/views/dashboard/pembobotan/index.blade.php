@@ -8,7 +8,6 @@
             <h3 class="p p-2 pb-1 text-center">Data Bobot</h3>
         </div>
             <div class="card-body ">
-
                 <table>
                     <thead>
                         <tr>
@@ -17,19 +16,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($bobot_kriterias as $b)
+                        @foreach ($kasus->bobot_kriteria as $k)
                             <tr>
-                                <td>{{ $b->id }}</td>
-                                <td>{{ $b->bobot }}</td>
+                                <td>{{ $k->id }}</td>
+                                @foreach ($k as $item)
+                                    <td>{{ $item }}</td>
+                                @endforeach
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
             </div>
-    </div>
-
-
-    <div class="">
-
     </div>
 @endsection

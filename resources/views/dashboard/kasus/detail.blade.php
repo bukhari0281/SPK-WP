@@ -79,15 +79,10 @@
                                     <td>{{ $item->kode }}</td>
                                     <td>
                                         {{ $item->bobot }}
-
                                                 @empty
-
-
-
                                         <p>
                                             Tidak ada data
                                         </p>
-
                                         @endforelse
                                     </td>
 
