@@ -115,8 +115,8 @@
                 {{-- <input type="hidden" name="alternatif" value="{{ $data->id }}"> --}}
                 {{-- <input type="text" id="kriteria_id" name="kriteria_id"> --}}
                 <select name="kriteria_id" id="kriteria" class="form-control">
-                    @foreach($kriteria as $kriteria)
-                        <option value="{{ $kriteria->id }}">{{ $kriteria->name() }}</option>
+                    @foreach($kriteria as $item)
+                        <option value="{{ $item->id }}" {{ (isset($selectedKriteria) && $selectedKriteria->id == $item->id) ? 'selected' : '' }}>{{ $item->name() }}</option>
                     @endforeach
                 </select>
                 <div class="">
