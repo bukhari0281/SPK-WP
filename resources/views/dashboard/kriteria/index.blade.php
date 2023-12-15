@@ -34,9 +34,9 @@
                     <td>{{ $item->name }}</td>
                     <td >{{ $item->bobot }}</td>
                     <td class="text-center">
-                        [ {{ $item->get_subkriteria->count() }}     ] Data
+                        [ {{ $item->get_subkriteria->count() }} ] Data
                         {{-- <a href="{{ route('create_sub_kriteria', $item->id) }}" class="btn btn-sm btn-primary text-white">+</a> --}}
-                        <a href="{{ route('create_sub_kriteria', $item->id) }}" class="btn btn-sm btn-primary btn-modal" data-bs-toggle="modal" data-bs-target="#exampleModal" >+</a>
+                        <a href="{{ route('create_sub_kriteria', $item->id) }}" class="btn btn-sm btn-primary btn-modal" data-bs-toggle="modal" data-bs-target="#add-sub-kriteria" >+</a>
 
                     </td>
                     <td class="text-center">
@@ -51,7 +51,7 @@
     </div>
 
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="add-sub-kriteria" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <form action="{{ route('store_sub_kriteria') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="modal-dialog">
@@ -63,9 +63,9 @@
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    {{-- <p>{{ $data->id }}</p> --}}
+                {{-- <p>{{ $data }}</p> --}}
                 {{-- <input type="hidden" name="alternatif" value="{{ $data->id }}"> --}}
-                <input type="hidden" id="kriteria_id" name="kriteria_id">
+                {{-- <input type="hidden" id="kriteria_id" name="kriteria_id"> --}}
                 <select name="kriteria_id" id="kriteria" class="form-control">
                     @foreach($data as $kriteria)
                         <option value="{{ $kriteria->id }}">{{ $kriteria->name() }}</option>

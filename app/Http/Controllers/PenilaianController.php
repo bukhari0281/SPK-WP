@@ -10,46 +10,40 @@ class PenilaianController extends Controller
 {
     public function proses()
 	{
-		$alternatifs = alternatif::orderBy('kode')->get();
-		$kriterias = Kriteria::orderBy('kode')->get();
-		// penentuan nilai bobot
-		$bobots = [];
-		foreach ($kriterias as $kr) {
-			$bobots[] = $kr->bobot / $kriterias->sum('bobot');
-		}
+		// Mengambil data bobot kriteria dari database atau sumber lain
+		$bobotKriteria = Kriteria::pluck('bobot')->toArray();
 
-		// penentuan matriks keputusan
-		$matrix = [];
-		foreach ($alternatifs as $ka => $alt) {
-			foreach ($alt->kriteria as $kk => $krit) {
-				$matrix[$ka][$kk] = $krit->pivot->nilai;
-			}
-		}
+		// Mengambil data nilai alternatif dari database atau sumber lain
+		$nilaiAlternatif = alternatif::select('nilai')->get()->map(function ($item) {
+		    return $item->nilai;
+		})->toArray();
 
-		// penentuan nilai vektor S
-		$vectors = [];
-		foreach ($matrix as $mat) {
-			$vec = [];
-			foreach ($mat as $km => $m) {
-				$vec[] = pow($m, $bobots[$km]);
-			}
-			$vectors[] = array_product($vec);
-		}
+		// Menghitung jumlah bobot kriteria
+		$jumlahBobotKriteria = array_sum($bobotKriteria);
 
-		// penentuan nilai bobot preferensi
-		$prefs = [];
-		$sigma_si = array_sum($vectors);
-		foreach ($vectors as $vector) {
-			$prefs[] = $vector / $sigma_si;
-		}
+		// Normalisasi bobot kriteria
+		$normalizedBobotKriteria = array_map(function ($bobot) use ($jumlahBobotKriteria) {
+		    return $bobot / $jumlahBobotKriteria;
+		}, $bobotKriteria);
 
-		// masukkan hasil penilaian ke data alternatif
-		foreach ($alternatifs as $key => $alternatif) {
-			$alternatif->nilai = round($prefs[$key], 4);
-		}
+		// Menghitung vektor S untuk setiap alternatif
+		$vektorS = array_map(function ($nilai) use ($normalizedBobotKriteria) {
+		    $vektor = 1;
+		    foreach ($nilai as $index => $nilaiKriteria) {
+		        $vektor *= pow($nilaiKriteria, $normalizedBobotKriteria[$index]);
+		    }
+		    return $vektor;
+		}, $nilaiAlternatif);
 
-		return $alternatifs;
+		// Menghitung jumlah total vektor S
+		$jumlahTotalVektorS = array_sum($vektorS);
+
+		// Menghitung vektor V (preferensi) untuk setiap alternatif
+		$vektorV = array_map(function ($s) use ($jumlahTotalVektorS) {
+		    return $s / $jumlahTotalVektorS;
+		}, $vektorS);
+
+		// Hasil akhir penghitungan vektor
+		return $vektorV;
 	}
-
-    
 }

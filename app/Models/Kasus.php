@@ -25,4 +25,9 @@ class Kasus extends Model
     {
         return $this->hasMany(Kriteria::class);
     }
+
+    public function bobot_kriteria()
+    {
+        return $this->hasMany(bobot_kriteria::class);
+    }
 }
