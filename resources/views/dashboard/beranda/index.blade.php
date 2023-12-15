@@ -8,8 +8,8 @@
                 <div class="col-sm-8">
                     <div class="card text-bg-primary    ">
                         <div class="card-body">
-                            <h1 class="card-title ">Kasus</h1>
-                            <p class="card-text  display-1 text-center">{{ $kasus->count() }}</p>
+                            <h1 class="card-title ">Kriteria</h1>
+                            <p class="card-text  display-1 text-center">{{ $kriteria->count() }}</p>
                             <a href="{{ route('kasus') }}" class="btn btn-light">Go somewhere</a>
                         </div>
                     </div>

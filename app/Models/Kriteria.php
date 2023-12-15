@@ -8,32 +8,32 @@ use Illuminate\Database\Eloquent\Model;
 class Kriteria extends Model
 {
     use HasFactory;
-    protected $table = 'Kriterias';
-    protected $fillable = ['kode','name','bobot','kasus_id'];
+    protected $table = 'kriterias';
+    protected $fillable = ['kode','name','bobot'];
 
-    public function kode()
-    {
-        return $this->kode;
-    }
+    // public function kode()
+    // {
+    //     return $this->kode;
+    // }
 
-    public function name()
-    {
-        return $this->name;
-    }
+    // public function name()
+    // {
+    //     return $this->name;
+    // }
 
-    public function bobot()
-    {
-        return $this->bobot;
-    }
+    // public function bobot()
+    // {
+    //     return $this->bobot;
+    // }
 
-    public function Kasus()
-    {
-        return $this->belongsTo(Kasus::class, 'kasus_id');
-    }
+    // public function Kasus()
+    // {
+    //     return $this->belongsTo(Kasus::class, 'kasus_id');
+    // }
 
-    public function get_subkriteria()
-	{
-		return $this->hasMany(sub_kriteria::class);
-	}
+    // public function get_subkriteria()
+	// {
+	// 	return $this->hasMany(sub_kriteria::class);
+	// }
 
 }

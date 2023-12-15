@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('nilai_alternatifs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('kriteria_id')->constrained()->cascadeOnDelete();
             $table->foreignId('alternatif_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('sub_kriteria_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

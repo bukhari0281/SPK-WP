@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('kriterias', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('kasus_id')->constrained()->cascadeOnDelete();
 			$table->string('kode');
             $table->string('name');
             $table->float('bobot');
